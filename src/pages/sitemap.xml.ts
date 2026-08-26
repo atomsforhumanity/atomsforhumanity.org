@@ -4,7 +4,7 @@ const routes = ["/", "/work", "/technology", "/about", "/team", "/organization",
 
 export const GET: APIRoute = () => {
   const urls = routes
-    .map((route) => `  <url><loc>https://atomsforhumanity.org${route}</loc></url>`)
+    .map((route) => `  <url><loc>https://www.atomsforhumanity.org${route}</loc></url>`)
     .join("\n");
 
   return new Response(`<?xml version="1.0" encoding="UTF-8"?>

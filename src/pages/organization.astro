@@ -30,7 +30,7 @@ const directors = team.filter((member) => member.group === "Leadership & Board")
           <div><dt>Federal EIN / Charity ID</dt><dd>{organization.ein}</dd></div>
           <div><dt>State of incorporation</dt><dd>{organization.incorporationState}</dd></div>
           <div><dt>Founded</dt><dd>{organization.founded}</dd></div>
-          <div><dt>Official website</dt><dd><a href={organization.domain}>atomsforhumanity.org</a></dd></div>
+          <div><dt>Official website</dt><dd><a href={organization.domain}>www.atomsforhumanity.org</a></dd></div>
           <div class="fact-address"><dt>Physical address</dt><dd><address>{organization.address.street}<br />{organization.address.city}, {organization.address.state} {organization.address.postalCode}<br />{organization.address.country}</address></dd></div>
           <div class="fact-address"><dt>Mailing address</dt><dd><address>{organization.mailingAddress.street}<br />{organization.mailingAddress.city}, {organization.mailingAddress.state} {organization.mailingAddress.postalCode}<br />{organization.mailingAddress.country}</address></dd></div>
           <div class="fact-mission"><dt>Mission</dt><dd>{organization.mission}</dd></div>
