@@ -1,0 +1,47 @@
+---
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+import type { TeamMember as TeamMemberType } from "../data/team";
+interface Props { member: TeamMemberType; }
+const { member } = Astro.props;
+const hasImage = existsSync(join(process.cwd(), "public", member.image));
+---
+
+<article class="person-card">
+  <div class="portrait">
+    {hasImage ? (
+      <img src={member.image} alt={`Portrait of ${member.name}`} width="600" height="750" loading="lazy" />
+    ) : (
+      <div class="portrait-placeholder" role="img" aria-label={`Portrait placeholder for ${member.name}`}>
+        <span class="portrait-orbit" aria-hidden="true"></span>
+        <span class="portrait-initials">{member.initials}</span>
+        <span class="portrait-status">PORTRAIT FORTHCOMING</span>
+      </div>
+    )}
+  </div>
+  <div class="person-copy">
+    <h3>{member.name}</h3>
+    <p class="person-title">{member.title}</p>
+    <p>{member.bio}</p>
+    {member.links && <div class="person-links">{member.links.map((link) => <a href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}</div>}
+  </div>
+</article>
+
+<style>
+  .person-card { display: grid; grid-template-columns: minmax(210px, .8fr) minmax(0, 1.45fr); border-top: 1px solid var(--border-dark); padding: 2.25rem 0; gap: clamp(2rem, 5vw, 5rem); }
+  .portrait { aspect-ratio: 4 / 5; max-width: 330px; background: var(--bg-elevated); border: 1px solid var(--border-dark); border-radius: var(--radius-md); overflow: hidden; }
+  .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .portrait-placeholder { position: relative; display: grid; place-items: center; height: 100%; background-image: linear-gradient(var(--border-dark) 1px, transparent 1px), linear-gradient(90deg, var(--border-dark) 1px, transparent 1px), radial-gradient(circle at 50% 45%, rgba(66,221,177,.11), transparent 47%); background-size: 32px 32px, 32px 32px, 100% 100%; }
+  .portrait-orbit { position: absolute; width: 47%; aspect-ratio: 1; border: 1px solid rgba(66,221,177,.25); border-radius: 50%; }
+  .portrait-orbit::before, .portrait-orbit::after { content: ""; position: absolute; inset: 25% -20%; border: 1px solid rgba(167,181,175,.18); border-radius: 50%; transform: rotate(42deg); }
+  .portrait-orbit::after { transform: rotate(-42deg); }
+  .portrait-initials { color: var(--text-primary); font: 450 clamp(1.8rem, 4vw, 3rem)/1 var(--font-mono); letter-spacing: -.06em; }
+  .portrait-status { position: absolute; inset: auto 1rem 1rem; color: var(--text-muted); font: 500 .58rem/1.2 var(--font-mono); letter-spacing: .1em; }
+  .person-copy { align-self: center; max-width: 710px; }
+  .person-copy h3 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.35rem); }
+  .person-title { margin: .5rem 0 1.4rem !important; color: var(--accent-muted) !important; font: 500 .8rem/1.5 var(--font-mono); letter-spacing: .045em; text-transform: uppercase; }
+  .person-copy > p:last-of-type { margin: 0; color: var(--text-secondary); }
+  .person-links { display: flex; gap: 1rem; margin-top: 1.5rem; }
+  .person-links a { font-size: .87rem; }
+  @media (max-width: 680px) { .person-card { grid-template-columns: 1fr; gap: 1.8rem; }.portrait { width: min(100%, 300px); }.person-copy { align-self: start; } }
+</style>

@@ -1,0 +1,31 @@
+---
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+interface Props { title: string; description: string; href: string; }
+const { title, description, href } = Astro.props;
+const isAvailable = existsSync(join(process.cwd(), "public", href));
+---
+
+<article class="document-row">
+  <div class="document-icon" aria-hidden="true"><span>PDF</span></div>
+  <div class="document-copy">
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+  {isAvailable ? (
+    <a class="document-action" href={href}>View PDF <span aria-hidden="true">↗</span></a>
+  ) : (
+    <span class="document-pending">PDF forthcoming</span>
+  )}
+</article>
+
+<style>
+  .document-row { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; align-items: center; gap: 1.5rem; padding: 1.6rem 0; border-top: 1px solid var(--border-light); }
+  .document-icon { width: 46px; height: 56px; display: grid; place-items: center; background: rgba(36,124,104,.08); border: 1px solid rgba(36,124,104,.22); border-radius: var(--radius-sm); }
+  .document-icon span { color: var(--accent-dark); font: 600 .65rem/1 var(--font-mono); letter-spacing: .06em; }
+  .document-copy h3 { margin: 0 0 .35rem; font-size: 1.06rem; }
+  .document-copy p { margin: 0; color: var(--text-dark-secondary); font-size: .92rem; }
+  .document-action { color: var(--text-dark); font-size: .85rem; font-weight: 560; white-space: nowrap; }
+  .document-pending { color: #53645d; font: 500 .7rem/1.2 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+  @media (max-width: 600px) { .document-row { grid-template-columns: 48px 1fr; }.document-action, .document-pending { grid-column: 2; justify-self: start; } }
+</style>

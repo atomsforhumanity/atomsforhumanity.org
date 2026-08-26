@@ -1,0 +1,31 @@
+---
+import type { Project } from "../data/projects";
+interface Props { project: Project; featured?: boolean; }
+const { project, featured = false } = Astro.props;
+---
+
+<article class:list={["project-card", { "project-card--featured": featured }]}>
+  <p class="project-category">{project.category}</p>
+  <h3><span class="project-prompt" aria-hidden="true">›</span>{project.displayName ?? project.name}</h3>
+  <p>{project.description}</p>
+  {project.supportingLine && <p class="supporting-line">{project.supportingLine}</p>}
+  <div class="project-links">
+    {project.repository && <a href={project.repository}>GitHub <span aria-hidden="true">↗</span></a>}
+    {project.documentation && <a href={project.documentation}>Documentation <span aria-hidden="true">↗</span></a>}
+    {project.links?.map((link) => <a href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}
+  </div>
+</article>
+
+<style>
+  .project-card { position: relative; display: flex; flex-direction: column; min-height: 300px; padding: clamp(1.5rem, 3vw, 2.15rem); background: var(--bg-elevated); border: 1px solid var(--border-dark); border-radius: var(--radius-md); overflow: hidden; transition: border-color var(--transition), transform var(--transition); }
+  .project-card::after { position: absolute; content: ""; width: 150px; height: 150px; inset: auto -70px -80px auto; border: 1px solid rgba(66,221,177,.16); border-radius: 50%; box-shadow: 0 0 0 25px rgba(66,221,177,.025), 0 0 0 50px rgba(66,221,177,.02); }
+  .project-card:hover { border-color: rgba(66,221,177,.35); transform: translateY(-2px); }
+  .project-category { margin: 0 0 2.2rem; color: var(--accent-muted); font: 520 .7rem/1.2 var(--font-mono); letter-spacing: .12em; }
+  .project-card h3 { margin: 0 0 1rem; font: 520 clamp(1.35rem, 2vw, 1.75rem)/1.2 var(--font-mono); letter-spacing: -.04em; }
+  .project-prompt { margin-inline-end: .55rem; color: var(--accent); }
+  .project-card > p:not(.project-category) { margin: 0; color: var(--text-secondary); font-size: .98rem; }
+  .supporting-line { margin-top: 1rem !important; color: var(--text-primary) !important; }
+  .project-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: auto; padding-top: 2rem; position: relative; z-index: 1; }
+  .project-links a { color: var(--text-primary); font-size: .84rem; font-weight: 540; }
+  .project-card--featured { min-height: 340px; }
+</style>

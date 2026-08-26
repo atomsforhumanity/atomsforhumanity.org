@@ -1,0 +1,116 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ArchitectureDiagram from "../components/ArchitectureDiagram.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { organization } from "../data/organization";
+import { projects, qcProjects } from "../data/projects";
+---
+
+<BaseLayout
+  title="Technology | Atoms for Humanity"
+  description="Explore the open qc*, BigChem, and ChemCloud infrastructure Atoms for Humanity is developing for scalable molecular simulation."
+>
+  <header class="page-hero technology-hero">
+    <div class="container page-hero__inner">
+      <p class="eyebrow">TECHNOLOGY</p>
+      <h1>A software stack for computational science at scale.</h1>
+      <div class="lede">
+        <p>Quantum chemistry already has powerful scientific programs. The difficulty is making those programs easy to compose, automate, distribute, and operate across large computational workloads.</p>
+        <p>AFH develops open infrastructure that connects scientific data, simulation programs, distributed computation, and cloud access into a coherent system.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section architecture-section" id="architecture">
+    <div class="container">
+      <SectionHeader label="SYSTEM ARCHITECTURE" heading="From scientific intent to physical computation." intro="The same composable layers connect researchers and AI systems to scientific workflows, programs, and the machines that execute them." />
+      <ArchitectureDiagram />
+    </div>
+  </section>
+
+  <section class="section section--secondary qc-section" id="qc-ecosystem">
+    <div class="container">
+      <SectionHeader
+        label="THE QC* ECOSYSTEM"
+        heading="qc*: interoperable building blocks for quantum chemistry."
+        intro="qc* is a family of small, composable tools designed to make quantum chemistry easier to represent, operate, translate, analyze, and automate."
+      />
+      <div class="qc-grid">
+        {qcProjects.map((project) => <ProjectCard project={project} />)}
+      </div>
+      <p class="migration-note">Project repositories are migrating into the Atoms for Humanity GitHub organization. Current working links are maintained centrally.</p>
+    </div>
+  </section>
+
+  <section class="section distributed-section" id="distributed-infrastructure">
+    <div class="container">
+      <SectionHeader label="DISTRIBUTED INFRASTRUCTURE" heading="Scale beyond individual calculations." />
+      <div class="distributed-grid">
+        <ProjectCard project={projects.bigchem} featured />
+        <div class="flow-connector" aria-hidden="true"><span>secure interface</span><i>→</i></div>
+        <ProjectCard project={projects.chemcloud} featured />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light compute-section">
+    <div class="container split">
+      <SectionHeader light label="AFH COMPUTE" heading="Compute where the science needs it." />
+      <div class="copy-stack">
+        <p>AFH operates computational infrastructure to support development, research, and shared scientific workloads. The software stack is designed to operate across local machines, clusters, cloud resources, CPUs, and GPUs rather than depend on any single computing environment.</p>
+        <div class="compute-row" aria-label="Supported computing environments"><span>LOCAL</span><span>CLUSTERS</span><span>HPC</span><span>CLOUD</span><span>CPU</span><span>GPU</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ai-section">
+    <div class="container ai-grid">
+      <div>
+        <SectionHeader label="HUMANS + AI" heading="Scientific infrastructure for researchers and AI." />
+        <div class="copy-stack">
+          <p>Modern coding agents such as Codex and Claude Code already work naturally with programmatic scientific software. AFH is designing its tools around composable interfaces that can be operated by both researchers and increasingly capable AI systems.</p>
+          <p>The longer-term opportunity is not simply AI that proposes chemistry, but AI that can interact with a digital chemical laboratory: construct experiments, run simulations, inspect results, and iterate.</p>
+        </div>
+      </div>
+      <div class="access-diagram" aria-label="Researchers and AI systems connect to the same digital laboratory">
+        <div class="access-users"><span>Researcher</span><span>AI system</span></div>
+        <div class="access-lines" aria-hidden="true"></div>
+        <div class="access-lab"><small>SHARED SCIENTIFIC ENVIRONMENT</small><strong>AFH Digital Laboratory</strong><span>construct · run · inspect · iterate</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--secondary github-section">
+    <div class="container github-callout">
+      <div><p class="section-label">OPEN SOURCE</p><h2>Built in the open.</h2><p>Explore Atoms for Humanity's open-source work and follow the ongoing migration of the qc* ecosystem into the AFH organization.</p></div>
+      <a class="button" href={organization.links.github}>View AFH on GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .technology-hero .lede p { margin: 0; }.technology-hero .lede p + p { margin-top: 1rem; }
+  .qc-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; margin-top: 3.5rem; }
+  .qc-grid > :global(article) { grid-column: span 2; }
+  .qc-grid > :global(article:nth-child(4)) { grid-column: 2 / span 2; }
+  .qc-grid > :global(article:nth-child(5)) { grid-column: 4 / span 2; }
+  .migration-note { margin: 1.5rem 0 0; color: var(--text-muted); font: 450 .72rem/1.5 var(--font-mono); }
+  .distributed-grid { display: grid; grid-template-columns: 1fr 96px 1fr; gap: 1rem; align-items: center; margin-top: 3.5rem; }
+  .flow-connector { color: var(--text-muted); text-align: center; font: 450 .6rem/1.4 var(--font-mono); letter-spacing: .04em; }
+  .flow-connector i { display: block; margin-top: .5rem; color: var(--accent); font-style: normal; font-size: 1.2rem; }
+  .compute-row { display: flex; flex-wrap: wrap; margin-top: 2rem; border-block: 1px solid var(--border-light); }
+  .compute-row span { padding: .9rem 1.1rem; color: var(--accent-dark); font: 550 .67rem/1 var(--font-mono); letter-spacing: .08em; }
+  .compute-row span + span { border-left: 1px solid var(--border-light); }
+  .ai-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(380px, .8fr); align-items: center; gap: clamp(3rem, 8vw, 8rem); }
+  .ai-grid .copy-stack { margin-top: 2rem; }
+  .access-diagram { padding: 2rem; background: var(--bg-elevated); border: 1px solid var(--border-dark); border-radius: var(--radius-md); }
+  .access-users { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .access-users span { padding: 1rem; border: 1px solid var(--border-dark); border-radius: var(--radius-sm); text-align: center; font: 500 .84rem/1 var(--font-mono); }
+  .access-lines { position: relative; height: 58px; width: 50%; margin: auto; border: solid rgba(66,221,177,.3); border-width: 0 1px 1px; }
+  .access-lab { display: flex; flex-direction: column; padding: 1.5rem; border: 1px solid rgba(66,221,177,.3); border-radius: var(--radius-sm); background: rgba(36,124,104,.09); }
+  .access-lab small { color: var(--accent); font: 500 .58rem/1.3 var(--font-mono); letter-spacing: .08em; }.access-lab strong { margin-top: .7rem; font-size: 1.2rem; font-weight: 520; }.access-lab span { margin-top: .6rem; color: var(--text-muted); font: .68rem var(--font-mono); }
+  .github-callout { display: flex; justify-content: space-between; align-items: end; gap: 3rem; }.github-callout h2 { margin: 0; }.github-callout p:not(.section-label) { max-width: 650px; color: var(--text-secondary); }.github-callout .button { flex: none; }
+  @media (max-width: 900px) { .qc-grid { grid-template-columns: repeat(2, 1fr); }.qc-grid > :global(article), .qc-grid > :global(article:nth-child(4)), .qc-grid > :global(article:nth-child(5)) { grid-column: auto; }.qc-grid > :global(article:last-child) { grid-column: 1 / -1; }.ai-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) { .distributed-grid { grid-template-columns: 1fr; }.flow-connector i { transform: rotate(90deg); }.qc-grid { grid-template-columns: 1fr; }.qc-grid > :global(article:last-child) { grid-column: auto; }.github-callout { align-items: start; flex-direction: column; }.compute-row span { flex: 1 1 33%; text-align: center; } }
+</style>

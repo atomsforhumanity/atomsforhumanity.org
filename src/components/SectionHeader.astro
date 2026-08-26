@@ -1,0 +1,22 @@
+---
+interface Props {
+  label?: string;
+  heading: string;
+  intro?: string;
+  light?: boolean;
+}
+const { label, heading, intro, light = false } = Astro.props;
+---
+
+<header class:list={["section-header", { "section-header--light": light }]}>
+  {label && <p class="section-label">{label}</p>}
+  <h2>{heading}</h2>
+  {intro && <p class="section-intro">{intro}</p>}
+</header>
+
+<style>
+  .section-header { max-width: 860px; }
+  .section-header h2 { margin: 0; max-width: 850px; }
+  .section-intro { max-width: var(--prose-width); margin: 1.5rem 0 0; color: var(--text-secondary); font-size: clamp(1.08rem, 1.5vw, 1.22rem); }
+  .section-header--light .section-intro { color: var(--text-dark-secondary); }
+</style>

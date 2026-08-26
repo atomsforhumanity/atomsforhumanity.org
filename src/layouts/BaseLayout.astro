@@ -1,0 +1,71 @@
+---
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
+import "../styles/tokens.css";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { organization } from "../data/organization";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  noindex?: boolean;
+}
+const { title, description, image = "/social-card.svg", noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, organization.domain).toString();
+const socialImage = new URL(image, organization.domain).toString();
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "NonprofitOrganization",
+  name: organization.name,
+  legalName: organization.legalName,
+  url: organization.domain,
+  logo: `${organization.domain}/favicon.svg`,
+  description: organization.shortDescription,
+  taxID: organization.ein,
+  foundingDate: organization.foundingDate,
+  nonprofitStatus: "https://schema.org/Nonprofit501c3",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: organization.address.street,
+    addressLocality: organization.address.city,
+    addressRegion: organization.address.state,
+    postalCode: organization.address.postalCode,
+    addressCountry: "US",
+  },
+  sameAs: [organization.links.github, organization.links.linkedin],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#0B1110" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={organization.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <Header />
+    <main id="main-content"><slot /></main>
+    <Footer />
+  </body>
+</html>
