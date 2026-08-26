@@ -16,7 +16,7 @@ Use these facts consistently throughout the website.
 
 **Legal name:** Atoms for Humanity Corp
 
-**Domain:** https://atomsforhumanity.org
+**Domain:** https://www.atomsforhumanity.org
 
 **Organization type:** 501(c)(3) public charity
 
@@ -1006,7 +1006,7 @@ Title:
 
 Bio:
 
-> Colton Hicks is the founder and CEO of Atoms for Humanity. He earned a PhD in quantum chemistry from Stanford University, where his work focused on computational chemistry and scalable approaches to molecular simulation. His background spans both scientific research and professional software engineering, and his work at AFH sits at the intersection of molecular science, scientific infrastructure, and high-performance computing.
+> Colton Hicks is the founder and CEO of Atoms for Humanity. He earned his PhD in theoretical chemistry from Stanford University, where his work focused on distributed system design for quantum chemistry simulation, high throughput molecular analysis using group- and graph- theory, and organocatalyst design. Prior to his PhD, Colton worked as an analytic chemist building high throughput pipelines for synthetic DNA/RNA synthesis, as a researcher in macroeconomics and clinical psychology, and as a software engineer building automated trading systems at a hedge fund and scalable data systems at a medtech startup. His work at AFH sits at the intersection of scalable infrastructure, advanced molecular research, and high-performance computing.
 
 Links:
 
@@ -1135,7 +1135,7 @@ Delaware
 March 2026
 
 **Official website**
-atomsforhumanity.org
+www.atomsforhumanity.org
 
 **Physical address**
 107 Plaza Trusco
@@ -1542,7 +1542,7 @@ The production website must make the following easily machine- and human-readabl
 
 **Organization:** Atoms for Humanity Corp
 
-**Domain:** atomsforhumanity.org
+**Domain:** www.atomsforhumanity.org
 
 **EIN:** 41-5138821
 
@@ -1573,7 +1573,7 @@ Conceptually:
   "@type": "NonprofitOrganization",
   "name": "Atoms for Humanity",
   "legalName": "Atoms for Humanity Corp",
-  "url": "https://atomsforhumanity.org",
+  "url": "https://www.atomsforhumanity.org",
   "taxID": "41-5138821",
   "foundingDate": "2026-03",
   "address": {

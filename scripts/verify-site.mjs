@@ -34,7 +34,7 @@ for (const [route, html] of pageHtml) {
 
   if (!title || titles.has(title)) failures.push(`${route}: missing or duplicate title`);
   if (title) titles.add(title);
-  if (canonical !== `https://atomsforhumanity.org${route}`) failures.push(`${route}: invalid canonical URL`);
+  if (canonical !== `https://www.atomsforhumanity.org${route}`) failures.push(`${route}: invalid canonical URL`);
   if (headings !== 1) failures.push(`${route}: expected one h1, found ${headings}`);
 
   const internalResources = [...html.matchAll(/(?:href|src)="(\/[^"#?]*)/g)].map((match) => match[1]);
@@ -70,7 +70,7 @@ for (const fact of [
 
 const sitemap = readFileSync(join(outputDirectory, "sitemap.xml"), "utf8");
 for (const [route] of pages) {
-  if (!sitemap.includes(`<loc>https://atomsforhumanity.org${route}</loc>`)) failures.push(`sitemap: missing ${route}`);
+  if (!sitemap.includes(`<loc>https://www.atomsforhumanity.org${route}</loc>`)) failures.push(`sitemap: missing ${route}`);
 }
 
 if (failures.length > 0) {

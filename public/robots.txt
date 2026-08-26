@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://atomsforhumanity.org/sitemap.xml
+Sitemap: https://www.atomsforhumanity.org/sitemap.xml

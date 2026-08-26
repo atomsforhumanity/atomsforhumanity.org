@@ -9,7 +9,7 @@ export interface PostalAddress {
 export const organization = {
   name: "Atoms for Humanity",
   legalName: "Atoms for Humanity Corp",
-  domain: "https://atomsforhumanity.org",
+  domain: "https://www.atomsforhumanity.org",
   type: "501(c)(3) public charity",
   ein: "41-5138821",
   incorporationState: "Delaware",
