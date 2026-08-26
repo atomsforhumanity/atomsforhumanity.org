@@ -14,7 +14,7 @@ export const team: TeamMember[] = [
     initials: "CH",
     title: "Founder & CEO · Director",
     group: "Leadership & Board",
-    bio: "Colton Hicks is the founder and CEO of Atoms for Humanity. He earned a PhD in quantum chemistry from Stanford University, where his work focused on computational chemistry and scalable approaches to molecular simulation. His background spans both scientific research and professional software engineering, and his work at AFH sits at the intersection of molecular science, scientific infrastructure, and high-performance computing.",
+    bio: "Colton Hicks is the founder and CEO of Atoms for Humanity. He earned his PhD in theoretical chemistry from Stanford University, where his work focused on distributed system design for quantum chemistry simulation, high throughput molecular analysis using group- and graph- theory, and organocatalyst design. Prior to his PhD, Colton worked as an analytic chemist building high throughput pipelines for synthetic DNA/RNA synthesis, as a researcher in macroeconomics and clinical psychology, and as a software engineer building automated trading systems at a hedge fund and scalable data systems at a medtech startup. His work at AFH sits at the intersection of scalable infrastructure, advanced molecular research, and high-performance computing.",
     image: "/images/team/colton-hicks.png",
     links: [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/coltonbh/" },
