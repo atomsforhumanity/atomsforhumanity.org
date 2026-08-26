@@ -43,7 +43,7 @@ export const team: TeamMember[] = [
     initials: "JEP",
     title: "Lead Computational Research Scientist",
     group: "Research Team",
-    bio: "Jan Estrada Pabón leads computational research at Atoms for Humanity. His work focuses on applying high-throughput molecular simulation to reaction-network discovery, catalyst design, and sustainable chemistry while helping develop the scientific workflows that drive AFH's computational infrastructure.",
-    image: "/images/team/jan-estrada-pabon.jpg",
+    bio: "Jan Estrada Pabón holds a PhD in theoretical chemistry from Stanford University and leads Atoms for Humanity’s computational research in automated reaction-path and reaction-network discovery. His doctoral work used high-throughput simulation to uncover complex reaction networks and chemical pathways beyond those initially hypothesized by researchers. At AFH, he applies these approaches to catalyst design, sustainable chemistry, and large-scale reaction discovery, while developing scientific workflows that both leverage and help shape AFH’s computational infrastructure.",
+    image: "/images/team/jan-estrada-pabon.png",
   },
 ];
