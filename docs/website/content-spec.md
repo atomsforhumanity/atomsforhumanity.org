@@ -1198,6 +1198,8 @@ Intro:
 
 Create these document links:
 
+Each PDF link must open in a new browser tab.
+
 ### Certificate of Incorporation
 
 > Official formation document for Atoms for Humanity Corp.
@@ -1367,6 +1369,8 @@ The qc\* projects are maintained under:
 https://github.com/atomsforhumanity
 
 Repository links must remain centralized in one typed data file. BigChem and ChemCloud continue to use their existing repositories.
+
+All project repository and documentation links must open in a new browser tab.
 
 Use this project map:
 
