@@ -13,7 +13,7 @@ const isAvailable = existsSync(join(process.cwd(), "public", href));
     <p>{description}</p>
   </div>
   {isAvailable ? (
-    <a class="document-action" href={href}>View PDF <span aria-hidden="true">↗</span></a>
+    <a class="document-action" href={href} target="_blank" rel="noopener">View PDF <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>
   ) : (
     <span class="document-pending">PDF forthcoming</span>
   )}

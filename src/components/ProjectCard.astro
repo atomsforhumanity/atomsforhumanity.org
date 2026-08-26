@@ -10,9 +10,9 @@ const { project, featured = false } = Astro.props;
   <p>{project.description}</p>
   {project.supportingLine && <p class="supporting-line">{project.supportingLine}</p>}
   <div class="project-links">
-    {project.repository && <a href={project.repository}>GitHub <span aria-hidden="true">↗</span></a>}
-    {project.documentation && <a href={project.documentation}>Documentation <span aria-hidden="true">↗</span></a>}
-    {project.links?.map((link) => <a href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}
+    {project.repository && <a href={project.repository} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>}
+    {project.documentation && <a href={project.documentation} target="_blank" rel="noopener noreferrer">Documentation <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>}
+    {project.links?.map((link) => <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label} <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>)}
   </div>
 </article>
 

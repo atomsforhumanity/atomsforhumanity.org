@@ -68,6 +68,35 @@ for (const fact of [
   if (!organizationText.includes(fact)) failures.push(`/organization: missing verification fact ${fact}`);
 }
 
+const technologyHtml = pageHtml.get("/technology");
+for (const href of [
+  "https://github.com/atomsforhumanity/qcconst",
+  "https://github.com/atomsforhumanity/qcdata",
+  "https://qcdata.docs.atomsforhumanity.org/",
+  "https://github.com/atomsforhumanity/qcinf",
+  "https://github.com/atomsforhumanity/qccodec",
+  "https://github.com/atomsforhumanity/qccompute",
+  "https://qccompute.docs.atomsforhumanity.org/",
+  "https://github.com/mtzgroup/bigchem",
+  "https://github.com/mtzgroup/chemcloud-server",
+  "https://github.com/mtzgroup/chemcloud-client",
+]) {
+  if (!technologyHtml.includes(`href="${href}" target="_blank" rel="noopener noreferrer"`)) {
+    failures.push(`/technology: project link does not open safely in a new tab: ${href}`);
+  }
+}
+
+const organizationHtml = pageHtml.get("/organization");
+for (const href of [
+  "/documents/certificate-of-incorporation.pdf",
+  "/documents/bylaws.pdf",
+  "/documents/irs-determination-letter.pdf",
+]) {
+  if (!organizationHtml.includes(`href="${href}" target="_blank" rel="noopener"`)) {
+    failures.push(`/organization: PDF link does not open safely in a new tab: ${href}`);
+  }
+}
+
 const sitemap = readFileSync(join(outputDirectory, "sitemap.xml"), "utf8");
 for (const [route] of pages) {
   if (!sitemap.includes(`<loc>https://www.atomsforhumanity.org${route}</loc>`)) failures.push(`sitemap: missing ${route}`);
@@ -78,4 +107,4 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log(`Verified ${pages.length} routes, internal links, metadata, sitemap entries, and nonprofit identity.`);
+console.log(`Verified ${pages.length} routes, internal links, metadata, sitemap entries, nonprofit identity, and project/PDF new-tab behavior.`);
