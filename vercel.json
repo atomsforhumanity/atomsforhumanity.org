@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.atomsforhumanity.org" }],
+      "destination": "https://atomsforhumanity.org/$1",
+      "permanent": true
+    }
+  ]
+}

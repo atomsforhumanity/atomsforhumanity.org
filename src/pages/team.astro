@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TeamMember from "../components/TeamMember.astro";
+import { team } from "../data/team";
+
+const leadership = team.filter((member) => member.group === "Leadership & Board");
+const researchers = team.filter((member) => member.group === "Research Team");
+---
+
+<BaseLayout title="Team | Atoms for Humanity" description="Meet the leadership, board, and research team behind Atoms for Humanity.">
+  <header class="page-hero team-hero">
+    <div class="container page-hero__inner">
+      <p class="eyebrow">TEAM</p>
+      <h1>The people behind Atoms for Humanity.</h1>
+      <p class="lede">AFH brings together scientific research, software engineering, technology, and institutional experience around a shared mission: building a more sustainable molecular future.</p>
+    </div>
+  </header>
+
+  <section class="section team-section" id="leadership">
+    <div class="container">
+      <div class="team-heading"><p class="section-label">LEADERSHIP & BOARD</p><span>{String(leadership.length).padStart(2, "0")} PEOPLE</span></div>
+      {leadership.map((member) => <TeamMember member={member} />)}
+    </div>
+  </section>
+
+  <section class="section section--secondary team-section research-team" id="research-team">
+    <div class="container">
+      <div class="team-heading"><p class="section-label">RESEARCH TEAM</p><span>{String(researchers.length).padStart(2, "0")} PERSON</span></div>
+      {researchers.map((member) => <TeamMember member={member} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .team-hero::after { inset: auto 0 -100% auto; }
+  .team-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }.team-heading .section-label { margin: 0; }.team-heading span { color: var(--text-muted); font: 500 .63rem/1 var(--font-mono); letter-spacing: .09em; }
+  .team-section :global(.person-card:last-child) { padding-bottom: 0; }
+</style>

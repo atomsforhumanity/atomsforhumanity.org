@@ -1,0 +1,34 @@
+<figure class="network-figure">
+  <svg viewBox="0 0 700 430" role="img" aria-labelledby="network-title network-desc">
+    <title id="network-title">Abstract chemical-space network</title>
+    <desc id="network-desc">A branching network of connected molecular states illustrates the scale and many possible paths through chemical space.</desc>
+    <g class="network-paths">
+      <path d="M72 224 177 145 280 191 377 112 493 152 624 90"></path>
+      <path d="M177 145 214 59M280 191l33 109 112 49 98-53 107 68M377 112l64-66M493 152l79 62 52-124M72 224l90 105 151-29M162 329l-65 42M425 349l50 54"></path>
+      <path class="network-path--ghost" d="M214 59 330 45l47 67M313 300l64-188M523 296l49-82M280 191l145 158"></path>
+    </g>
+    <g class="network-nodes">
+      <circle cx="72" cy="224" r="8"></circle><circle cx="177" cy="145" r="11"></circle><circle cx="280" cy="191" r="7"></circle>
+      <circle class="node-active" cx="377" cy="112" r="13"></circle><circle cx="493" cy="152" r="9"></circle><circle cx="624" cy="90" r="6"></circle>
+      <circle cx="214" cy="59" r="6"></circle><circle cx="313" cy="300" r="10"></circle><circle cx="425" cy="349" r="7"></circle>
+      <circle cx="523" cy="296" r="9"></circle><circle cx="630" cy="364" r="6"></circle><circle cx="162" cy="329" r="7"></circle>
+      <circle cx="97" cy="371" r="5"></circle><circle cx="441" cy="46" r="5"></circle><circle cx="572" cy="214" r="6"></circle><circle cx="475" cy="403" r="5"></circle>
+    </g>
+    <g class="network-labels">
+      <text x="54" y="202">START</text><text x="390" y="102">STATE 04</text><text x="585" y="389">PATH 17</text>
+    </g>
+  </svg>
+  <figcaption><span>CHEMICAL SPACE / CONCEPTUAL MAP</span><span>possible states and pathways</span></figcaption>
+</figure>
+
+<style>
+  .network-figure { margin: 0; padding: clamp(1rem, 2.5vw, 2rem); background: rgba(22,33,30,.7); border: 1px solid var(--border-dark); border-radius: var(--radius-md); }
+  svg { display: block; width: 100%; }
+  .network-paths { fill: none; stroke: rgba(167,181,175,.35); stroke-width: 1.25; }
+  .network-path--ghost { stroke: rgba(66,221,177,.18); stroke-dasharray: 3 6; }
+  .network-nodes circle { fill: var(--bg-secondary); stroke: var(--accent-muted); stroke-width: 1.5; }
+  .network-nodes .node-active { fill: var(--accent); stroke: none; }
+  .network-labels { fill: var(--text-muted); font: 9px var(--font-mono); letter-spacing: 1.2px; }
+  figcaption { display: flex; justify-content: space-between; gap: 1rem; padding-top: .8rem; border-top: 1px solid var(--border-dark); color: var(--text-muted); font: 500 .62rem/1.4 var(--font-mono); letter-spacing: .08em; }
+  figcaption span:last-child { text-align: right; letter-spacing: 0; }
+</style>

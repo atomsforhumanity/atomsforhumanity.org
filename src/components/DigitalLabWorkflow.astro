@@ -1,0 +1,68 @@
+---
+const stages = ["Hypothesize", "Simulate", "Analyze", "Learn"];
+const experiments = ["EXPERIMENT 001", "EXPERIMENT 002", "EXPERIMENT 003", "EXPERIMENT N"];
+---
+
+<figure class="scale-workflow">
+  <header>
+    <span>DIGITAL LABORATORY</span>
+    <span>SCIENTIFIC WORKFLOW</span>
+  </header>
+
+  <ol class="workflow-stages" aria-label="Scientific workflow">
+    {stages.map((stage, index) => (
+      <li class="workflow-stage">
+        <span>0{index + 1}</span>
+        <strong>{stage}</strong>
+      </li>
+    ))}
+  </ol>
+
+  <div class="scale-heading">
+    <strong>AT SCALE</strong>
+    <span>Many computational experiments in parallel</span>
+  </div>
+
+  <div class="experiment-field" aria-label="The workflow is distributed across many parallel computational experiments">
+    {experiments.map((experiment, experimentIndex) => (
+      <div class:list={["experiment-lane", { "experiment-lane--continuing": experimentIndex === experiments.length - 1 }]}>
+        <span>{experiment}</span>
+        <div class="lane-stages" aria-hidden="true">
+          {stages.map((_, stageIndex) => <i style={`--stage: ${stageIndex}`}></i>)}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <figcaption>The same rigorous workflow, distributed across many computational experiments.</figcaption>
+</figure>
+
+<style>
+  .scale-workflow { margin: 0; padding: clamp(1.4rem, 3vw, 2.25rem); background: var(--bg-primary); border: 1px solid var(--border-dark); border-radius: var(--radius-md); }
+  header { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-dark); color: var(--text-muted); font: 500 .61rem/1.3 var(--font-mono); letter-spacing: .09em; }
+  .workflow-stages { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(max-content, 1fr)); gap: .5rem; margin: 1.4rem 0 0; padding: 0; }
+  .workflow-stage { position: relative; padding: .9rem .55rem 1rem; background: var(--bg-elevated); border: 1px solid var(--border-dark); border-radius: var(--radius-sm); }
+  .workflow-stage:not(:last-child)::after { position: absolute; z-index: 1; inset: 50% -.48rem auto auto; width: .32rem; content: "→"; color: var(--accent-muted); font: 500 .68rem/1 var(--font-mono); transform: translateY(-50%); }
+  .workflow-stage span { display: block; margin-bottom: 1.4rem; color: var(--accent); font: 500 .61rem/1 var(--font-mono); }
+  .workflow-stage strong { display: block; font: 500 clamp(.68rem, .85vw, .78rem)/1.25 var(--font-mono); letter-spacing: -.045em; white-space: nowrap; }
+  .scale-heading { display: flex; align-items: baseline; gap: 1rem; margin-top: 2rem; padding-bottom: .8rem; border-bottom: 1px solid rgba(66,221,177,.25); }
+  .scale-heading strong { flex: none; color: var(--accent); font: 570 .82rem/1 var(--font-mono); letter-spacing: .12em; }
+  .scale-heading span { color: var(--text-secondary); font-size: .78rem; }
+  .experiment-field { padding-top: .65rem; }
+  .experiment-lane { display: grid; grid-template-columns: 92px 1fr; align-items: center; gap: .8rem; min-height: 34px; }
+  .experiment-lane > span { color: var(--text-muted); font: 500 .54rem/1 var(--font-mono); letter-spacing: .06em; }
+  .lane-stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .lane-stages i { height: 5px; background: rgba(66,221,177, calc(.18 + var(--stage) * .06)); border-radius: 1px; }
+  .experiment-lane--continuing { margin-top: .3rem; padding-top: .55rem; border-top: 1px dashed var(--border-dark); }
+  .experiment-lane--continuing .lane-stages i { background: transparent; border: 1px dashed rgba(66,221,177,.25); }
+  figcaption { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-dark); color: var(--text-muted); font: 450 .68rem/1.5 var(--font-mono); }
+  @media (max-width: 480px) {
+    header span:last-child { text-align: right; }
+    .workflow-stages { grid-template-columns: 1fr; gap: .45rem; }
+    .workflow-stage { display: flex; align-items: center; gap: 1rem; padding: .75rem; }
+    .workflow-stage span { margin: 0; }
+    .workflow-stage:not(:last-child)::after { inset: auto 1rem -.44rem auto; transform: rotate(90deg); }
+    .scale-heading { align-items: flex-start; flex-direction: column; gap: .45rem; }
+    .experiment-lane { grid-template-columns: 80px 1fr; }
+  }
+</style>

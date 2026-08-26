@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ResearchArea from "../components/ResearchArea.astro";
+import ProcessLoop from "../components/ProcessLoop.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { researchAreas } from "../data/research";
+---
+
+<BaseLayout
+  title="Our Work | Atoms for Humanity"
+  description="Atoms for Humanity develops open infrastructure for high-throughput molecular simulation and applies it to reaction discovery, catalyst design, and sustainable chemistry."
+>
+  <header class="page-hero work-hero">
+    <div class="container page-hero__inner">
+      <p class="eyebrow">OUR WORK</p>
+      <h1>From scientific infrastructure to molecular discovery.</h1>
+      <p class="lede">Our current strategy has two tightly connected parts: build the computational capabilities needed to explore chemistry at scale, and use those capabilities to investigate scientific problems that matter.</p>
+    </div>
+    <svg class="work-hero-graphic" viewBox="0 0 680 370" aria-hidden="true">
+      <path d="M32 299c98 0 91-191 196-191s111 169 219 169S551 83 650 83" fill="none" stroke="rgba(66,221,177,.28)"/>
+      <path d="M31 301h619M31 245h619M31 189h619M31 133h619M31 77h619" stroke="rgba(255,255,255,.045)"/>
+      <g fill="#0b1110" stroke="#7dbeac"><circle cx="228" cy="108" r="7"/><circle cx="447" cy="277" r="7"/><circle cx="650" cy="83" r="7"/></g>
+    </svg>
+  </header>
+
+  <section class="section work-areas">
+    <div class="container work-grid">
+      <div class="work-intro">
+        <p class="section-label">CURRENT PROGRAM</p>
+        <h2>Capabilities that expand what science can explore.</h2>
+        <p>Our primary technical focus is high-throughput molecular simulation. It provides the foundation for our current research programs and the open scientific infrastructure we share.</p>
+      </div>
+      <div>
+        {researchAreas.map((area) => <ResearchArea area={area} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--secondary">
+    <div class="container">
+      <SectionHeader
+        label="THE RESEARCH LOOP"
+        heading="Build against the hardest scientific problems."
+        intro="Frontier research reveals where today's software, workflows, and computational systems break down. AFH turns those constraints into general infrastructure that can serve the broader scientific community."
+      />
+      <ProcessLoop
+        items={["Scientific problem", "Infrastructure bottleneck", "Build general tools", "Run larger experiments", "Scientific discovery", "New scientific problem"]}
+        caption="AFH uses frontier research to expose the limitations of today's computational infrastructure, then turns solutions to those limitations into general tools for the broader scientific community."
+      />
+    </div>
+  </section>
+
+  <section class="section shared-section">
+    <div class="container split">
+      <SectionHeader label="SHARED INFRASTRUCTURE" heading="Infrastructure should serve more than one laboratory." />
+      <div class="copy-stack">
+        <p>AFH makes its scientific tools openly available and provides shared computation and ChemCloud access to external researchers where possible.</p>
+        <div class="fellows-note">
+          <p class="fellows-label">PROGRAM IN DEVELOPMENT</p>
+          <h3>AFH Software Fellows</h3>
+          <p>AFH is establishing a Software Fellows program to support people building and improving important open scientific software.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light outreach-section">
+    <div class="container split">
+      <SectionHeader light label="PUBLIC EDUCATION" heading="Public understanding matters too." />
+      <div class="copy-stack">
+        <p>The consequences of molecular design extend far beyond chemistry laboratories. AFH works to improve public understanding of how modern chemistry affects human health and the environment and why advances in molecular science can help create better alternatives.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section work-cta">
+    <div class="container cta-row">
+      <div><p class="section-label">THE STACK</p><h2>Explore the infrastructure behind the science.</h2></div>
+      <a class="button" href="/technology">View our technology <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .work-hero { min-height: 650px; }
+  .work-hero-graphic { position: absolute; width: min(53vw, 730px); inset: auto -5% -5% auto; opacity: .65; }
+  .work-grid { display: grid; grid-template-columns: minmax(270px, .72fr) minmax(0, 1.28fr); gap: clamp(3rem, 9vw, 9rem); }
+  .work-intro { position: sticky; top: calc(var(--header-height) + 3rem); align-self: start; }
+  .work-intro h2 { margin: 0; font-size: clamp(2rem, 3.5vw, 3.25rem); }
+  .work-intro > p:last-child { color: var(--text-secondary); }
+  .fellows-note { margin-top: 2.5rem; padding: 1.5rem; border: 1px solid var(--border-dark); border-radius: var(--radius-md); background: var(--bg-elevated); }
+  .fellows-note .fellows-label { margin: 0 0 1rem; color: var(--accent); font: 500 .64rem/1 var(--font-mono); letter-spacing: .1em; }
+  .fellows-note h3 { margin: 0 0 .7rem; font-size: 1.35rem; }
+  .fellows-note p:last-child { font-size: .94rem; }
+  .cta-row { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+  .cta-row h2 { max-width: 700px; margin: 0; }
+  .cta-row .button { flex: none; }
+  @media (max-width: 850px) { .work-hero-graphic { width: 90vw; opacity: .35; }.work-grid { grid-template-columns: 1fr; }.work-intro { position: static; }.cta-row { align-items: start; flex-direction: column; } }
+</style>

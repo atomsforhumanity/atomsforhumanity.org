@@ -1,0 +1,64 @@
+---
+import Logo from "./Logo.astro";
+import { navigation, organization } from "../data/organization";
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand-link" href="/" aria-label="Atoms for Humanity home"><Logo /></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <ul>
+        {navigation.map((item) => (
+          <li><a href={item.href} aria-current={currentPath === item.href ? "page" : undefined}>{item.label}</a></li>
+        ))}
+      </ul>
+      <a class="github-link" href={organization.links.github} aria-label="Atoms for Humanity on GitHub">GitHub ↗</a>
+      <a class="button button--small" href="/donate">Make a Donation</a>
+    </nav>
+    <details class="mobile-menu">
+      <summary aria-label="Open navigation menu">
+        <span class="menu-label">Menu</span>
+        <span class="menu-icon" aria-hidden="true"></span>
+      </summary>
+      <nav aria-label="Mobile navigation">
+        <ul>
+          {navigation.map((item) => (
+            <li><a href={item.href} aria-current={currentPath === item.href ? "page" : undefined}>{item.label}</a></li>
+          ))}
+          <li><a href="/donate">Make a Donation</a></li>
+          <li><a href={organization.links.github}>GitHub <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header { position: sticky; inset-block-start: 0; z-index: 50; min-height: var(--header-height); display: flex; align-items: center; background: rgba(11,17,16,.88); border-bottom: 1px solid var(--border-dark); backdrop-filter: blur(16px); }
+  .header-inner { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .brand-link { display: inline-flex; text-decoration: none; border-radius: var(--radius-sm); }
+  .desktop-nav { display: flex; align-items: center; gap: 1.25rem; }
+  .desktop-nav ul { list-style: none; display: flex; align-items: center; gap: clamp(.8rem, 1.6vw, 1.6rem); margin: 0; padding: 0; }
+  .desktop-nav a:not(.button), .github-link { color: var(--text-secondary); text-decoration: none; font-size: .84rem; font-weight: 500; }
+  .desktop-nav a:not(.button):hover, .desktop-nav a[aria-current="page"] { color: var(--text-primary); }
+  .github-link { padding-inline-start: 1rem; border-inline-start: 1px solid var(--border-dark); }
+  .mobile-menu { display: none; }
+  @media (max-width: 980px) {
+    .desktop-nav { display: none; }
+    .mobile-menu { display: block; }
+    .mobile-menu summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: .7rem; min-height: 44px; padding: 0 .25rem; color: var(--text-primary); font-size: .88rem; }
+    .mobile-menu summary::-webkit-details-marker { display: none; }
+    .menu-icon, .menu-icon::before { display: block; width: 1.3rem; height: 1px; background: currentColor; transition: transform var(--transition); content: ""; }
+    .menu-icon::before { transform: translateY(-5px); }
+    .mobile-menu[open] .menu-icon { transform: rotate(45deg); }
+    .mobile-menu[open] .menu-icon::before { transform: rotate(-90deg); }
+    .mobile-menu nav { position: absolute; inset: var(--header-height) 0 auto; background: var(--bg-primary); border-bottom: 1px solid var(--border-dark); padding: 1rem var(--gutter) 1.5rem; }
+    .mobile-menu ul { list-style: none; margin: 0 auto; padding: 0; max-width: var(--content-width); }
+    .mobile-menu li + li { border-top: 1px solid var(--border-dark); }
+    .mobile-menu a { display: flex; min-height: 50px; align-items: center; justify-content: space-between; color: var(--text-primary); text-decoration: none; font-size: 1rem; }
+    .mobile-menu a[aria-current="page"] { color: var(--accent); }
+  }
+  @media (max-width: 420px) { .menu-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); } }
+</style>

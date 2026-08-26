@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0B1110"/>
+  <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200M150 0v630M300 0v630M450 0v630M600 0v630M750 0v630M900 0v630M1050 0v630" stroke="#42DDB1" opacity=".035"/>
+  <circle cx="942" cy="314" r="118" fill="none" stroke="#42DDB1" opacity=".18"/>
+  <ellipse cx="942" cy="314" rx="206" ry="72" fill="none" stroke="#A7B5AF" opacity=".3" transform="rotate(28 942 314)"/>
+  <ellipse cx="942" cy="314" rx="206" ry="72" fill="none" stroke="#A7B5AF" opacity=".3" transform="rotate(-28 942 314)"/>
+  <circle cx="942" cy="314" r="31" fill="#42DDB1"/>
+  <circle cx="764" cy="218" r="8" fill="#42DDB1"/><circle cx="1120" cy="410" r="8" fill="#42DDB1"/>
+  <text x="92" y="123" fill="#42DDB1" font-family="Arial, sans-serif" font-size="21" letter-spacing="4">ATOMS FOR HUMANITY</text>
+  <text x="88" y="263" fill="#F0F5F2" font-family="Arial, sans-serif" font-size="67" font-weight="500">Building a sustainable</text>
+  <text x="88" y="343" fill="#F0F5F2" font-family="Arial, sans-serif" font-size="67" font-weight="500">molecular future.</text>
+  <text x="92" y="522" fill="#A7B5AF" font-family="Arial, sans-serif" font-size="26">Open infrastructure for molecular simulation at scale.</text>
+</svg>

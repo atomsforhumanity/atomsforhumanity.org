@@ -1,0 +1,61 @@
+<figure class="architecture">
+  <div class="architecture-users">
+    <div class="arch-node arch-node--user"><span class="node-meta">HUMAN</span><strong>Researchers</strong></div>
+    <div class="join" aria-hidden="true"></div>
+    <div class="arch-node arch-node--user"><span class="node-meta">COMPUTATIONAL</span><strong>AI systems</strong></div>
+  </div>
+  <div class="down" aria-hidden="true">↓</div>
+  <div class="arch-node arch-node--workflow"><span class="node-meta">EXPERIMENT LAYER</span><strong>Scientific workflows</strong></div>
+  <div class="down" aria-hidden="true">↓</div>
+  <div class="architecture-stack">
+    <div class="arch-node arch-node--primary"><span class="node-meta">SECURE ACCESS</span><strong>ChemCloud</strong></div>
+    <div class="down" aria-hidden="true">↓</div>
+    <div class="arch-node arch-node--primary"><span class="node-meta">DISTRIBUTION</span><strong>BigChem</strong></div>
+    <div class="down" aria-hidden="true">↓</div>
+    <div class="arch-node arch-node--primary"><span class="node-meta">INTEROPERABILITY</span><strong>qc*</strong></div>
+  </div>
+  <div class="down" aria-hidden="true">↓</div>
+  <div class="qc-branches">
+    <div class="arch-node arch-node--small"><strong>qcdata</strong><span>↕ qcinf</span></div>
+    <div class="arch-node arch-node--small"><strong>qccodec</strong><span>translate</span></div>
+    <div class="arch-node arch-node--small"><strong>qccompute</strong><span>operate</span></div>
+    <div class="arch-node arch-node--small"><strong>qcconst</strong><span>reference</span></div>
+  </div>
+  <div class="down" aria-hidden="true">↓</div>
+  <div class="architecture-foundation">
+    <div class="arch-node arch-node--foundation"><span class="node-meta">SCIENTIFIC SOFTWARE</span><strong>Simulation programs</strong></div>
+    <div class="arch-node arch-node--foundation"><span class="node-meta">COMPUTE</span><strong>CPU / GPU / HPC / Cloud</strong></div>
+  </div>
+  <figcaption><span>AFH COMPUTATIONAL ARCHITECTURE</span><span>from scientific intent to physical computation</span></figcaption>
+</figure>
+
+<style>
+  .architecture { margin: 3.5rem 0 0; padding: clamp(1.2rem, 4vw, 3.5rem); background: #0d1513; border: 1px solid var(--border-dark); border-radius: var(--radius-lg); }
+  .architecture-users, .architecture-foundation { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; position: relative; }
+  .join { position: absolute; width: 1rem; height: 1rem; left: calc(50% - .5rem); bottom: -.55rem; border-bottom: 1px solid rgba(66,221,177,.3); transform: rotate(45deg); }
+  .arch-node { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; padding: 1rem 1.2rem; border: 1px solid var(--border-dark); border-radius: var(--radius-sm); background: var(--bg-secondary); }
+  .arch-node strong { font: 520 1rem/1.2 var(--font-mono); letter-spacing: -.03em; }
+  .node-meta { color: var(--text-muted); font: 500 .61rem/1.2 var(--font-mono); letter-spacing: .1em; }
+  .arch-node--user { background: rgba(22,33,30,.55); }
+  .arch-node--workflow { width: 66%; margin: 0 auto; border-color: rgba(111,169,184,.25); }
+  .architecture-stack { width: 47%; margin: 0 auto; }
+  .arch-node--primary { border-color: rgba(66,221,177,.27); background: rgba(36,124,104,.1); }
+  .arch-node--primary strong { color: var(--accent); font-size: 1.18rem; }
+  .down { height: 30px; display: grid; place-items: center; color: var(--text-muted); font-family: var(--font-mono); }
+  .qc-branches { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7rem; }
+  .arch-node--small { min-height: 80px; flex-direction: column; align-items: flex-start; justify-content: center; }
+  .arch-node--small span { color: var(--text-muted); font: 450 .65rem/1.2 var(--font-mono); }
+  .architecture-foundation { gap: .7rem; }
+  .arch-node--foundation { background: transparent; }
+  figcaption { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-dark); color: var(--text-muted); font: 500 .63rem/1.3 var(--font-mono); letter-spacing: .09em; }
+  figcaption span:last-child { letter-spacing: 0; text-align: right; }
+  @media (max-width: 700px) {
+    .architecture-users, .architecture-foundation, .qc-branches { grid-template-columns: 1fr; }
+    .arch-node--workflow, .architecture-stack { width: 100%; }
+    .join { display: none; }
+    .architecture-users .arch-node + .arch-node, .architecture-foundation .arch-node + .arch-node, .qc-branches .arch-node + .arch-node { margin-top: 0; }
+    .qc-branches { gap: .5rem; }
+    .arch-node--small { min-height: 58px; flex-direction: row; align-items: center; justify-content: space-between; }
+    figcaption { flex-direction: column; }.architecture figcaption span:last-child { text-align: left; }
+  }
+</style>

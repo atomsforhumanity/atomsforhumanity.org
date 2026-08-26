@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { organization } from "../data/organization";
+---
+
+<BaseLayout
+  title="About | Atoms for Humanity"
+  description="Atoms for Humanity is a 501(c)(3) nonprofit research organization accelerating humanity's transition to a sustainable molecular future."
+>
+  <header class="page-hero about-hero">
+    <div class="container page-hero__inner">
+      <p class="eyebrow">ABOUT</p>
+      <h1>Science and technology for a sustainable molecular future.</h1>
+    </div>
+  </header>
+
+  <section class="section mission-section">
+    <div class="container mission-grid">
+      <p class="section-label">OUR MISSION</p>
+      <div>
+        <h2>{organization.mission}</h2>
+        <p>We believe many of the challenges created by modern chemistry can ultimately be addressed by increasing humanity's ability to understand, discover, and design matter itself.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--secondary thesis-sections">
+    <div class="container">
+      <article class="thesis-row">
+        <p class="thesis-index">01 / WHY AFH EXISTS</p>
+        <div><h2>A molecular problem requires molecular solutions.</h2><p>Chemical contamination, persistent materials, inefficient chemical processes, and other consequences of modern chemistry are not only problems of disposal or regulation. They can also reflect decisions embedded in the molecules and reactions themselves.</p><p>AFH works upstream: toward the scientific capabilities needed to discover better molecular systems in the first place.</p></div>
+      </article>
+      <article class="thesis-row">
+        <p class="thesis-index">02 / CURRENT THESIS</p>
+        <div><h2>Our first major bet is scalable simulation.</h2><p>Our mission is broader than any single technology. Today, however, we believe one of the highest-leverage interventions is to make molecular simulation dramatically more scalable, interoperable, and accessible.</p><p>That capability can expand what scientists can explore directly and create the scientific environment increasingly capable AI systems need to perform computational experiments.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--light public-good-section">
+    <div class="container public-good-grid">
+      <div>
+        <SectionHeader light label="WHY A NONPROFIT" heading="Scientific infrastructure is a public good." />
+        <div class="copy-stack">
+          <p>Foundational scientific infrastructure creates value across institutions, disciplines, and generations of researchers. It requires long-term maintenance, open access, stable stewardship, and incentives that are not always aligned with commercial returns.</p>
+          <p>Atoms for Humanity is structured as a nonprofit so that the tools and scientific capabilities we build can remain focused on scientific and public benefit.</p>
+        </div>
+      </div>
+      <div class="reuse-card">
+        <p class="section-label">OPEN SCIENCE</p>
+        <h3>Make the work reusable.</h3>
+        <p>We release software, data, workflows, protocols, and scientific results openly whenever practicable so others can use, extend, reproduce, and improve them.</p>
+        <div class="reuse-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section support-section">
+    <div class="container support-grid">
+      <div><p class="section-label">INSTITUTIONAL SUPPORT</p><h2>Supported by {organization.support.name}</h2></div>
+      <div>
+        <p>Atoms for Humanity's current infrastructure and research program is supported by a <strong>{organization.support.amount} grant from {organization.support.name}</strong>.</p>
+        {organization.affiliations.filter((affiliation) => affiliation.confirmed).map((affiliation) => <p class="affiliation">{affiliation.name}</p>)}
+        <a class="text-link" href="/organization">Organization & Governance <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--secondary about-cta">
+    <div class="container cta-row"><h2>Meet the people building Atoms for Humanity.</h2><a class="button" href="/team">Meet the team <span aria-hidden="true">→</span></a></div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-hero::before { content: "AFH"; position: absolute; inset: auto var(--gutter) -12% auto; color: rgba(66,221,177,.028); font: 600 clamp(15rem, 36vw, 34rem)/.75 var(--font-mono); letter-spacing: -.12em; }
+  .mission-section { padding-block: clamp(7rem, 14vw, 12rem); }
+  .mission-grid { display: grid; grid-template-columns: minmax(170px, .4fr) minmax(0, 1.6fr); gap: clamp(2rem, 6vw, 6rem); }
+  .mission-grid h2 { max-width: 980px; margin: 0; font-size: clamp(2.6rem, 5.4vw, 5rem); }
+  .mission-grid div > p { max-width: 720px; margin: 2rem 0 0; color: var(--text-secondary); font-size: 1.15rem; }
+  .thesis-row { display: grid; grid-template-columns: minmax(170px, .4fr) minmax(0, 1.6fr); gap: clamp(2rem, 6vw, 6rem); padding: clamp(3.5rem, 7vw, 6rem) 0; border-top: 1px solid var(--border-dark); }
+  .thesis-row:first-child { border-top: 0; padding-top: 0; }.thesis-row:last-child { padding-bottom: 0; }
+  .thesis-index { margin: .5rem 0 0; color: var(--accent); font: 500 .68rem/1.4 var(--font-mono); letter-spacing: .08em; }
+  .thesis-row h2 { margin: 0; max-width: 850px; }.thesis-row div > p { max-width: 730px; color: var(--text-secondary); font-size: 1.06rem; }.thesis-row div > p:last-child { margin-bottom: 0; }
+  .public-good-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); gap: clamp(3rem, 8vw, 8rem); align-items: center; }
+  .public-good-grid .copy-stack { margin-top: 2rem; }
+  .reuse-card { position: relative; min-height: 390px; display: flex; flex-direction: column; justify-content: end; padding: clamp(1.6rem, 4vw, 2.6rem); border: 1px solid var(--border-light); border-radius: var(--radius-md); overflow: hidden; }
+  .reuse-card h3 { margin: 0; font-size: clamp(1.7rem, 3vw, 2.5rem); }.reuse-card > p:not(.section-label) { color: var(--text-dark-secondary); }
+  .reuse-lines { position: absolute; inset: 0; }.reuse-lines i { position: absolute; width: 200px; height: 200px; inset: -95px auto auto calc(50% - 100px); border: 1px solid rgba(36,124,104,.18); border-radius: 50%; }.reuse-lines i:nth-child(2) { transform: translateX(-60px); }.reuse-lines i:nth-child(3) { transform: translateX(60px); }.reuse-lines i:nth-child(4) { transform: translateY(60px); }
+  .support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 8rem); }.support-grid h2 { margin: 0; }.support-grid > div:last-child p { margin: 0; color: var(--text-secondary); font-size: 1.1rem; }.support-grid .text-link { margin-top: 1.8rem; }
+  .support-grid .affiliation { margin-top: 1.3rem !important; color: var(--accent-muted) !important; font: 500 .75rem/1.4 var(--font-mono) !important; letter-spacing: .07em; text-transform: uppercase; }
+  .cta-row { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }.cta-row h2 { max-width: 760px; margin: 0; }.cta-row .button { flex: none; }
+  @media (max-width: 800px) { .mission-grid, .thesis-row, .public-good-grid, .support-grid { grid-template-columns: 1fr; }.reuse-card { min-height: 330px; }.cta-row { flex-direction: column; align-items: flex-start; } }
+</style>

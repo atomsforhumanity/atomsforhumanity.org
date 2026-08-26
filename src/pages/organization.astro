@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import DocumentLink from "../components/DocumentLink.astro";
+import { documents, organization } from "../data/organization";
+import { team } from "../data/team";
+
+const directors = team.filter((member) => member.group === "Leadership & Board");
+---
+
+<BaseLayout
+  title="Organization & Governance | Atoms for Humanity"
+  description="Legal, governance, tax-exempt, and organizational information for Atoms for Humanity Corp, a 501(c)(3) public charity."
+>
+  <div class="organization-page">
+    <header class="organization-hero">
+      <div class="container">
+        <p class="eyebrow">INSTITUTIONAL TRANSPARENCY</p>
+        <h1>Organization & Governance</h1>
+        <p class="lede">Atoms for Humanity is committed to transparency in both our science and our institution. We make our core organizational and governing information publicly available.</p>
+      </div>
+    </header>
+
+    <section class="organization-details" id="details">
+      <div class="container">
+        <div class="details-heading"><div><p class="section-label">VERIFIED ORGANIZATION</p><h2>Organization details</h2></div><span class="verification-badge"><i aria-hidden="true">✓</i> PUBLIC CHARITY</span></div>
+        <dl class="facts-grid">
+          <div><dt>Legal name</dt><dd>{organization.legalName}</dd></div>
+          <div><dt>Public name</dt><dd>{organization.name}</dd></div>
+          <div><dt>Organization type</dt><dd>{organization.type}</dd></div>
+          <div><dt>Federal EIN / Charity ID</dt><dd>{organization.ein}</dd></div>
+          <div><dt>State of incorporation</dt><dd>{organization.incorporationState}</dd></div>
+          <div><dt>Founded</dt><dd>{organization.founded}</dd></div>
+          <div><dt>Official website</dt><dd><a href={organization.domain}>atomsforhumanity.org</a></dd></div>
+          <div class="fact-address"><dt>Physical address</dt><dd><address>{organization.address.street}<br />{organization.address.city}, {organization.address.state} {organization.address.postalCode}<br />{organization.address.country}</address></dd></div>
+          <div class="fact-address"><dt>Mailing address</dt><dd><address>{organization.mailingAddress.street}<br />{organization.mailingAddress.city}, {organization.mailingAddress.state} {organization.mailingAddress.postalCode}<br />{organization.mailingAddress.country}</address></dd></div>
+          <div class="fact-mission"><dt>Mission</dt><dd>{organization.mission}</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="official-mission">
+      <div class="container mission-layout">
+        <div><p class="section-label">CORPORATE PURPOSE</p><h2>Official Mission</h2></div>
+        <blockquote>{organization.officialMission}</blockquote>
+      </div>
+    </section>
+
+    <section class="board-section">
+      <div class="container board-layout">
+        <div><p class="section-label">GOVERNANCE</p><h2>Board of Directors</h2></div>
+        <ol>
+          {directors.map((director, index) => (
+            <li><span>0{index + 1}</span><div><strong>{director.name}</strong><small>{director.title}</small></div></li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="documents-section" id="documents">
+      <div class="container documents-layout">
+        <div><p class="section-label">PUBLIC RECORDS</p><h2>Corporate & Tax Documents</h2><p>These documents establish Atoms for Humanity's corporate governance and federal tax-exempt status.</p></div>
+        <div class="documents-list">
+          {documents.map((document) => <DocumentLink {...document} />)}
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .organization-page { color-scheme: light; background: var(--bg-light-bright); color: var(--text-dark); }
+  .organization-hero { position: relative; padding: clamp(6rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 6.5rem); background: var(--bg-light); border-bottom: 1px solid var(--border-light); overflow: hidden; }
+  .organization-hero::after { position: absolute; inset: auto -12rem -19rem auto; content: ""; width: 34rem; height: 34rem; border: 1px solid rgba(36,124,104,.14); border-radius: 50%; box-shadow: 0 0 0 4rem rgba(36,124,104,.025), 0 0 0 8rem rgba(36,124,104,.018); }
+  .organization-hero h1 { margin: .9rem 0 0; max-width: 1000px; font-size: clamp(3rem, 6vw, 5.7rem); }.organization-hero .lede { color: var(--text-dark-secondary); }
+  .organization-details, .official-mission, .board-section, .documents-section { padding-block: clamp(4.5rem, 9vw, 8rem); }
+  .details-heading { display: flex; justify-content: space-between; align-items: end; gap: 2rem; }.details-heading h2, .mission-layout h2, .board-layout h2, .documents-layout h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.6rem); }.verification-badge { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem .75rem; border: 1px solid rgba(36,124,104,.22); border-radius: var(--radius-sm); color: var(--accent-dark); font: 600 .65rem/1 var(--font-mono); letter-spacing: .08em; }.verification-badge i { display: grid; width: 18px; height: 18px; place-items: center; background: rgba(36,124,104,.12); border-radius: 50%; font-style: normal; }
+  .facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin: 3rem 0 0; border-top: 1px solid var(--border-light); }.facts-grid > div { min-height: 130px; padding: 1.4rem 1.5rem 1.4rem 0; border-bottom: 1px solid var(--border-light); }.facts-grid > div:not(:nth-child(3n + 1)) { padding-left: 1.5rem; border-left: 1px solid var(--border-light); }.facts-grid dt { color: #66766f; font: 550 .65rem/1.3 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }.facts-grid dd { margin: .8rem 0 0; font-size: 1.04rem; font-weight: 500; }.facts-grid address { font-style: normal; line-height: 1.55; }.facts-grid a { color: var(--text-dark); }.facts-grid .fact-address { min-height: 165px; }.facts-grid .fact-mission { grid-column: 3; }.fact-mission dd { max-width: 310px; }
+  .official-mission { background: var(--bg-light); border-block: 1px solid var(--border-light); }.mission-layout, .board-layout, .documents-layout { display: grid; grid-template-columns: minmax(240px, .65fr) minmax(0, 1.35fr); gap: clamp(3rem, 8vw, 8rem); }.mission-layout blockquote { margin: 0; padding: 0 0 0 1.8rem; border-left: 2px solid var(--accent-dark); color: var(--text-dark); font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.55; letter-spacing: -.02em; }
+  .board-section ol { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-light); }.board-section li { display: grid; grid-template-columns: 55px 1fr; padding: 1.4rem 0; border-bottom: 1px solid var(--border-light); }.board-section li > span { color: var(--accent-dark); font: 500 .7rem/1.5 var(--font-mono); }.board-section li div { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }.board-section strong { font-size: 1.08rem; font-weight: 550; }.board-section small { color: var(--text-dark-secondary); font: .7rem var(--font-mono); text-transform: uppercase; letter-spacing: .05em; }
+  .documents-section { background: var(--bg-light); border-top: 1px solid var(--border-light); }.documents-layout > div:first-child > p:last-child { color: var(--text-dark-secondary); }
+  @media (max-width: 800px) { .facts-grid { grid-template-columns: repeat(2, 1fr); }.facts-grid > div:not(:nth-child(3n + 1)) { padding-left: 0; border-left: 0; }.facts-grid > div:nth-child(even) { padding-left: 1.2rem; border-left: 1px solid var(--border-light); }.facts-grid .fact-mission { grid-column: auto; }.mission-layout, .board-layout, .documents-layout { grid-template-columns: 1fr; }.details-heading { align-items: start; flex-direction: column; } }
+  @media (max-width: 520px) { .facts-grid { grid-template-columns: 1fr; }.facts-grid > div:nth-child(even), .facts-grid > div { min-height: 0; padding: 1.2rem 0; border-left: 0; }.board-section li div { flex-direction: column; align-items: start; gap: .25rem; } }
+</style>
