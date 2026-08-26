@@ -689,9 +689,9 @@ Description:
 
 > NIST/CODATA 2022 physical constants, conversion factors, and periodic-table data with clear source information for every value.
 
-Temporary repository:
+Repository:
 
-https://github.com/coltonbh/qcconst
+https://github.com/atomsforhumanity/qcconst
 
 ---
 
@@ -707,11 +707,11 @@ Description:
 
 Repository:
 
-https://github.com/coltonbh/qcdata
+https://github.com/atomsforhumanity/qcdata
 
 Documentation:
 
-https://qcdata.coltonhicks.com/
+https://qcdata.docs.atomsforhumanity.org/
 
 ---
 
@@ -727,7 +727,7 @@ Description:
 
 Repository:
 
-https://github.com/coltonbh/qcinf
+https://github.com/atomsforhumanity/qcinf
 
 ---
 
@@ -743,11 +743,11 @@ Description:
 
 Repository:
 
-https://github.com/coltonbh/qccodec
+https://github.com/atomsforhumanity/qccodec
 
 ---
 
-## qc
+## qccompute
 
 Display name:
 
@@ -759,10 +759,11 @@ Description:
 
 Repository:
 
-https://github.com/coltonbh/qccompute
+https://github.com/atomsforhumanity/qccompute
 
+Documentation:
 
-When the permanent AFH repository is available, replace this link centrally.
+https://qccompute.docs.atomsforhumanity.org/
 
 ---
 
@@ -1359,39 +1360,37 @@ Do not use aggressive fundraising language elsewhere.
 
 ---
 
-# 37. Repository Migration Strategy
+# 37. Repository Locations
 
-The qc\* projects are currently distributed across personal and existing organizational repositories while they transition into:
+The qc\* projects are maintained under:
 
 https://github.com/atomsforhumanity
 
-For V1:
+Repository links must remain centralized in one typed data file. BigChem and ChemCloud continue to use their existing repositories.
+
+Use this project map:
 
 - Display the new public package names.
-- Link to the currently functioning public repositories.
 - Keep every repository URL in one central typed data file.
 - Do not hardcode repository URLs across page components.
-- Replace links centrally as projects migrate.
 - Never expose old package names such as `qcio` or `qcop` in primary website copy.
-- Public names are `qcdata` and `qc`.
-
-Use this temporary project map:
+- Public names are `qcdata` and `qccompute`.
 
 ```text
 qcconst
-https://github.com/coltonbh/qcconst
+https://github.com/atomsforhumanity/qcconst
 
 qcdata
-https://github.com/coltonbh/qcdata
+https://github.com/atomsforhumanity/qcdata
 
 qcinf
-https://github.com/coltonbh/qcinf
+https://github.com/atomsforhumanity/qcinf
 
 qccodec
-https://github.com/coltonbh/qccodec
+https://github.com/atomsforhumanity/qccodec
 
-qc
-https://github.com/coltonbh/qccompute
+qccompute
+https://github.com/atomsforhumanity/qccompute
 
 BigChem
 https://github.com/mtzgroup/bigchem

@@ -15,29 +15,29 @@ export const projects = {
     category: "REFERENCE DATA",
     description:
       "NIST/CODATA 2022 physical constants, conversion factors, and periodic-table data with clear source information for every value.",
-    repository: "https://github.com/coltonbh/qcconst",
+    repository: "https://github.com/atomsforhumanity/qcconst",
   },
   qcdata: {
     name: "qcdata",
     category: "SCIENTIFIC DATA",
     description:
       "Elegant, intuitive data structures for quantum chemistry, including serializable calculation inputs and outputs and seamless Jupyter Notebook visualization.",
-    repository: "https://github.com/coltonbh/qcdata",
-    documentation: "https://qcdata.coltonhicks.com/",
+    repository: "https://github.com/atomsforhumanity/qcdata",
+    documentation: "https://qcdata.docs.atomsforhumanity.org/",
   },
   qcinf: {
     name: "qcinf",
     category: "MOLECULAR INFORMATICS",
     description:
       "Cheminformatics algorithms and molecular-structure utilities built around standardized qcdata objects.",
-    repository: "https://github.com/coltonbh/qcinf",
+    repository: "https://github.com/atomsforhumanity/qcinf",
   },
   qccodec: {
     name: "qccodec",
     category: "TRANSLATION",
     description:
       "A translation layer that encodes structured qcdata inputs into native quantum chemistry program inputs and decodes program outputs back into structured scientific data.",
-    repository: "https://github.com/coltonbh/qccodec",
+    repository: "https://github.com/atomsforhumanity/qccodec",
   },
   qc: {
     name: "qc",
@@ -45,7 +45,8 @@ export const projects = {
     category: "PROGRAM INTERFACE",
     description:
       "A common interface for operating quantum chemistry programs using standardized qcdata structures, supporting programs including TeraChem, Psi4, Q-Chem, NWChem, ORCA, Molpro, geomeTRIC, and others.",
-    repository: "https://github.com/coltonbh/qccompute",
+    repository: "https://github.com/atomsforhumanity/qccompute",
+    documentation: "https://qccompute.docs.atomsforhumanity.org/",
   },
   bigchem: {
     name: "BigChem",
