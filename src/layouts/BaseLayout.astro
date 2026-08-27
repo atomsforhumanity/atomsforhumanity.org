@@ -13,9 +13,11 @@ interface Props {
   image?: string;
   noindex?: boolean;
 }
-const { title, description, image = "/social-card.svg", noindex = false } = Astro.props;
+const { title, description, image = "/social-card.png", noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, organization.domain).toString();
 const socialImage = new URL(image, organization.domain).toString();
+const socialImageType = image.endsWith(".png") ? "image/png" : image.endsWith(".jpg") || image.endsWith(".jpeg") ? "image/jpeg" : undefined;
+const socialImageAlt = "Atoms for Humanity — Building a sustainable molecular future.";
 const schema = {
   "@context": "https://schema.org",
   "@type": "NonprofitOrganization",
@@ -55,17 +57,22 @@ const schema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
+    {socialImageType && <meta property="og:image:type" content={socialImageType} />}
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={socialImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script>
     <title>{title}</title>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <Header />
-    <main id="main-content"><slot /></main>
+    <main id="main-content" tabindex="-1"><slot /></main>
     <Footer />
   </body>
 </html>
