@@ -18,7 +18,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
       <a class="button button--small" href="/donate">Make a Donation</a>
     </nav>
     <details class="mobile-menu">
-      <summary aria-label="Open navigation menu">
+      <summary aria-label="Navigation menu">
         <span class="menu-label">Menu</span>
         <span class="menu-icon" aria-hidden="true"></span>
       </summary>
@@ -49,6 +49,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
     .desktop-nav { display: none; }
     .mobile-menu { display: block; }
     .mobile-menu summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: .7rem; min-height: 44px; padding: 0 .25rem; color: var(--text-primary); font-size: .88rem; }
+    .mobile-menu summary:focus { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
     .mobile-menu summary::-webkit-details-marker { display: none; }
     .menu-icon, .menu-icon::before { display: block; width: 1.3rem; height: 1px; background: currentColor; transition: transform var(--transition); content: ""; }
     .menu-icon::before { transform: translateY(-5px); }

@@ -18,14 +18,14 @@ const researchers = team.filter((member) => member.group === "Research Team");
 
   <section class="section team-section" id="leadership">
     <div class="container">
-      <div class="team-heading"><p class="section-label">LEADERSHIP & BOARD</p><span>{String(leadership.length).padStart(2, "0")} PEOPLE</span></div>
+      <div class="team-heading"><h2 class="section-label">LEADERSHIP & BOARD</h2><span>{String(leadership.length).padStart(2, "0")} {leadership.length === 1 ? "PERSON" : "PEOPLE"}</span></div>
       {leadership.map((member) => <TeamMember member={member} />)}
     </div>
   </section>
 
   <section class="section section--secondary team-section research-team" id="research-team">
     <div class="container">
-      <div class="team-heading"><p class="section-label">RESEARCH TEAM</p><span>{String(researchers.length).padStart(2, "0")} PERSON</span></div>
+      <div class="team-heading"><h2 class="section-label">RESEARCH TEAM</h2><span>{String(researchers.length).padStart(2, "0")} {researchers.length === 1 ? "PERSON" : "PEOPLE"}</span></div>
       {researchers.map((member) => <TeamMember member={member} />)}
     </div>
   </section>

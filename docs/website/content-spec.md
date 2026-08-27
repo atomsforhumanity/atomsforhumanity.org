@@ -654,9 +654,9 @@ Display a polished architecture diagram approximately:
                      qc*
        ┌───────────────┼───────────────┐
        ↓               ↓               ↓
-     qcdata          qccodec           qc
+     qcdata          qccodec       qccompute
        ↕                                 ↓
-     qcinf                        Simulation programs
+   structure                     Simulation programs
        ↕                                 ↓
     qcconst                     CPU / GPU / HPC / Cloud
 ```
@@ -851,7 +851,7 @@ At the bottom of Technology:
 
 Copy:
 
-> Explore Atoms for Humanity's open-source work and follow the ongoing migration of the qc\* ecosystem into the AFH organization.
+> Explore Atoms for Humanity's open-source work and the qc\* ecosystem maintained by AFH.
 
 CTA:
 
@@ -1020,10 +1020,8 @@ https://github.com/coltonbh
 Headshot target:
 
 ```text
-/public/images/team/colton-hicks.jpg
+/public/images/team/colton-hicks.webp
 ```
-
-Until supplied, use a deliberate neutral portrait placeholder rather than stock photography.
 
 ---
 
@@ -1040,7 +1038,7 @@ Bio:
 Headshot target:
 
 ```text
-/public/images/team/maryanna-saenko.jpg
+/public/images/team/maryanna-saenko.webp
 ```
 
 ---
@@ -1062,7 +1060,7 @@ https://www.linkedin.com/in/mvanlonden/
 Headshot target:
 
 ```text
-/public/images/team/mel-van-londen.jpg
+/public/images/team/mel-van-londen.webp
 ```
 
 ---
@@ -1077,12 +1075,12 @@ Title:
 
 Bio:
 
-> Jan Estrada Pabón leads computational research at Atoms for Humanity. His work focuses on applying high-throughput molecular simulation to reaction-network discovery, catalyst design, and sustainable chemistry while helping develop the scientific workflows that drive AFH's computational infrastructure.
+> Jan Estrada Pabón holds a PhD in theoretical chemistry from Stanford University and leads Atoms for Humanity’s computational research in automated reaction-path and reaction-network discovery. His doctoral work used high-throughput simulation to uncover complex reaction networks and chemical pathways beyond those initially hypothesized by researchers. At AFH, he applies these approaches to catalyst design, sustainable chemistry, and large-scale reaction discovery, while developing scientific workflows that both leverage and help shape AFH’s computational infrastructure.
 
 Headshot target:
 
 ```text
-/public/images/team/jan-estrada-pabon.jpg
+/public/images/team/jan-estrada-pabon.webp
 ```
 
 ---
@@ -1242,7 +1240,7 @@ Path:
 /documents/irs-determination-letter.pdf
 ```
 
-The final clean PDFs will be supplied separately.
+These public PDFs are served from the permanent paths above.
 
 ---
 
@@ -1603,10 +1601,10 @@ Validate the exact Schema.org type/property support during implementation.
 Team:
 
 ```text
-/public/images/team/colton-hicks.jpg
-/public/images/team/maryanna-saenko.jpg
-/public/images/team/mel-van-londen.jpg
-/public/images/team/jan-estrada-pabon.jpg
+/public/images/team/colton-hicks.webp
+/public/images/team/maryanna-saenko.webp
+/public/images/team/mel-van-londen.webp
+/public/images/team/jan-estrada-pabon.webp
 ```
 
 Documents:

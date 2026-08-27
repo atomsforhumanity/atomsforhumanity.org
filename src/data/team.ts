@@ -15,7 +15,7 @@ export const team: TeamMember[] = [
     title: "Founder & CEO · Director",
     group: "Leadership & Board",
     bio: "Colton Hicks is the founder and CEO of Atoms for Humanity. He earned his PhD in theoretical chemistry from Stanford University, where his work focused on distributed system design for quantum chemistry simulation, high throughput molecular analysis using group- and graph- theory, and organocatalyst design. Prior to his PhD, Colton worked as an analytic chemist building high throughput pipelines for synthetic DNA/RNA synthesis, as a researcher in macroeconomics and clinical psychology, and as a software engineer building automated trading systems at a hedge fund and scalable data systems at a medtech startup. His work at AFH sits at the intersection of scalable infrastructure, advanced molecular research, and high-performance computing.",
-    image: "/images/team/colton-hicks.png",
+    image: "/images/team/colton-hicks.webp",
     links: [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/coltonbh/" },
       { label: "GitHub", href: "https://github.com/coltonbh" },
@@ -35,7 +35,7 @@ export const team: TeamMember[] = [
     title: "Director",
     group: "Leadership & Board",
     bio: "Mel van Londen is the CEO and co-founder of Develop Health, an AI-driven healthcare technology company working to reduce administrative barriers to medication access. He has deep experience building and scaling software products across healthcare technology and a background in open-source software development.",
-    image: "/images/team/mel-van-londen.png",
+    image: "/images/team/mel-van-londen.webp",
     links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/mvanlonden/" }],
   },
   {
@@ -44,6 +44,6 @@ export const team: TeamMember[] = [
     title: "Lead Computational Research Scientist",
     group: "Research Team",
     bio: "Jan Estrada Pabón holds a PhD in theoretical chemistry from Stanford University and leads Atoms for Humanity’s computational research in automated reaction-path and reaction-network discovery. His doctoral work used high-throughput simulation to uncover complex reaction networks and chemical pathways beyond those initially hypothesized by researchers. At AFH, he applies these approaches to catalyst design, sustainable chemistry, and large-scale reaction discovery, while developing scientific workflows that both leverage and help shape AFH’s computational infrastructure.",
-    image: "/images/team/jan-estrada-pabon.png",
+    image: "/images/team/jan-estrada-pabon.webp",
   },
 ];

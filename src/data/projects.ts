@@ -1,6 +1,5 @@
 export interface Project {
   name: string;
-  displayName?: string;
   category: string;
   description: string;
   repository?: string;
@@ -39,9 +38,8 @@ export const projects = {
       "A translation layer that encodes structured qcdata inputs into native quantum chemistry program inputs and decodes program outputs back into structured scientific data.",
     repository: "https://github.com/atomsforhumanity/qccodec",
   },
-  qc: {
-    name: "qc",
-    displayName: "qccompute",
+  qccompute: {
+    name: "qccompute",
     category: "PROGRAM INTERFACE",
     description:
       "A common interface for operating quantum chemistry programs using standardized qcdata structures, supporting programs including TeraChem, Psi4, Q-Chem, NWChem, ORCA, Molpro, geomeTRIC, and others.",
@@ -76,7 +74,7 @@ export const qcProjects = [
   projects.qcdata,
   projects.qcinf,
   projects.qccodec,
-  projects.qc,
+  projects.qccompute,
 ] as const;
 
 export const technologyGroups = [

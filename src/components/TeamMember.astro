@@ -10,7 +10,7 @@ const hasImage = existsSync(join(process.cwd(), "public", member.image));
 <article class="person-card">
   <div class="portrait">
     {hasImage ? (
-      <img src={member.image} alt={`Portrait of ${member.name}`} width="600" height="750" loading="lazy" />
+      <img src={member.image} alt={`Portrait of ${member.name}`} width="660" height="825" loading="lazy" decoding="async" />
     ) : (
       <div class="portrait-placeholder" role="img" aria-label={`Portrait placeholder for ${member.name}`}>
         <span class="portrait-orbit" aria-hidden="true"></span>

@@ -1,5 +1,5 @@
 *, *::before, *::after { box-sizing: border-box; }
-html { color-scheme: dark; scroll-behavior: smooth; background: var(--bg-primary); }
+html { color-scheme: dark; scroll-behavior: smooth; scroll-padding-top: var(--header-height); background: var(--bg-primary); }
 body { margin: 0; min-width: 320px; background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-sans); font-size: 1rem; line-height: 1.65; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
 body::before { position: fixed; z-index: -1; inset: 0; content: ""; pointer-events: none; background-image: linear-gradient(rgba(66,221,177,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(66,221,177,.018) 1px, transparent 1px); background-size: 72px 72px; mask-image: linear-gradient(to bottom, #000, transparent 65%); }
 ::selection { background: rgba(66,221,177,.3); color: var(--text-primary); }
