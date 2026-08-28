@@ -23,7 +23,7 @@ const hasImage = existsSync(join(process.cwd(), "public", member.image));
     <h3>{member.name}</h3>
     <p class="person-title">{member.title}</p>
     <p>{member.bio}</p>
-    {member.links && <div class="person-links">{member.links.map((link) => <a href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}</div>}
+    {member.links && <div class="person-links">{member.links.map((link) => <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label} <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>)}</div>}
   </div>
 </article>
 
