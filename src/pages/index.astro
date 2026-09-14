@@ -167,13 +167,13 @@ import { organization } from "../data/organization";
 
 <style>
   .home-hero { position: relative; min-height: calc(100svh - var(--header-height)); display: grid; place-items: center; padding: clamp(6rem, 13vw, 11rem) 0; overflow: hidden; }
-  .home-hero::before { position: absolute; inset: 50% auto auto 50%; content: ""; width: min(92vw, 1100px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(66,221,177,.07), transparent 64%); transform: translate(-50%, -50%); pointer-events: none; }
-  .home-hero::after { position: absolute; inset: 0; content: ""; background-image: linear-gradient(rgba(66,221,177,.024) 1px, transparent 1px), linear-gradient(90deg, rgba(66,221,177,.024) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(circle at center, #000 0, transparent 68%); pointer-events: none; }
+  .home-hero::before { position: absolute; inset: 50% auto auto 50%; content: ""; width: min(92vw, 1100px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 7%, transparent), transparent 64%); transform: translate(-50%, -50%); pointer-events: none; }
+  .home-hero::after { position: absolute; inset: 0; content: ""; background-image: linear-gradient(color-mix(in srgb, var(--accent) 2.4%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--accent) 2.4%, transparent) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(circle at center, #000 0, transparent 68%); pointer-events: none; }
   .hero-texture { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; pointer-events: none; mask-image: linear-gradient(to bottom, transparent 5%, #000 28%, #000 72%, transparent 96%); }
   .hero-flow { transform-origin: center; animation: hero-flow-drift 22s ease-in-out infinite alternate; }
   .hero-flow path { fill: none; vector-effect: non-scaling-stroke; }
-  .hero-flow__secondary { stroke: rgba(111,169,184,.085); stroke-width: 1; }
-  .hero-flow__echo { stroke: rgba(167,181,175,.06); stroke-width: 1; }
+  .hero-flow__secondary { stroke: color-mix(in srgb, var(--accent-cool) 8.5%, transparent); stroke-width: 1; }
+  .hero-flow__echo { stroke: color-mix(in srgb, var(--text-secondary) 6%, transparent); stroke-width: 1; }
   @keyframes hero-flow-drift { to { transform: translate3d(1.2%, -.6%, 0) scale(1.012); } }
   .hero-inner { position: relative; z-index: 1; }
   .hero-copy { display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -187,13 +187,13 @@ import { organization } from "../data/organization";
   .challenge-section { padding-block: clamp(7rem, 14vw, 12rem); }
   .space-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(420px, 1.1fr); align-items: center; gap: clamp(3rem, 7vw, 7rem); }
   .space-copy { margin-top: 2rem; }
-  .why-now { background: radial-gradient(circle at 80% 40%, rgba(36,124,104,.07), transparent 30%); }
-  .laboratory-section { background: #0d1412; border-block: 1px solid var(--border-dark); }
+  .why-now { background: radial-gradient(circle at 80% 40%, color-mix(in srgb, var(--accent-dark) 7%, transparent), transparent 30%); }
+  .laboratory-section { background: var(--bg-secondary); border-block: 1px solid var(--border-dark); }
   .laboratory-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(370px, .85fr); gap: clamp(3rem, 8vw, 8rem); align-items: center; }
   .laboratory-copy .copy-stack { max-width: 720px; margin-top: 2rem; }
   blockquote { margin: 2.3rem 0 0; padding: .2rem 0 .2rem 1.5rem; border-left: 2px solid var(--accent); color: var(--text-primary); font-size: clamp(1.05rem, 1.5vw, 1.2rem); }
   .stack-line { display: flex; align-items: center; gap: 1rem; margin-top: 3.5rem; color: var(--text-muted); font: 500 .62rem/1 var(--font-mono); letter-spacing: .09em; }
-  .stack-line i { height: 1px; flex: 1; background: linear-gradient(90deg, var(--border-dark), rgba(66,221,177,.4), var(--border-dark)); }
+  .stack-line i { height: 1px; flex: 1; background: linear-gradient(90deg, var(--border-dark), color-mix(in srgb, var(--accent) 40%, transparent), var(--border-dark)); }
   .technology-groups { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 1rem; border-block: 1px solid var(--border-dark); }
   .technology-groups article { min-height: 360px; display: grid; grid-template-rows: 1fr auto; padding: 1.8rem 1.8rem 2.2rem 0; }
   .technology-groups article + article { padding-left: 1.8rem; border-left: 1px solid var(--border-dark); }

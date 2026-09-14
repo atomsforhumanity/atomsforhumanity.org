@@ -5,7 +5,9 @@ import "../styles/tokens.css";
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 import { organization } from "../data/organization";
+import { themes, DEFAULT_THEME_ID, THEME_VAR_KEYS, STORAGE_KEYS } from "../data/themes";
 
 interface Props {
   title: string;
@@ -68,11 +70,105 @@ const schema = {
     <meta name="twitter:image:alt" content={socialImageAlt} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)}></script>
     <title>{title}</title>
+    <script
+      is:inline
+      define:vars={{
+        builtInThemes: themes,
+        allThemeVarKeys: THEME_VAR_KEYS,
+        defaultThemeId: DEFAULT_THEME_ID,
+        activeThemeKey: STORAGE_KEYS.activeTheme,
+        customPalettesKey: STORAGE_KEYS.customPalettes,
+      }}
+    >
+      (function () {
+        var customPalettes = [];
+        try {
+          customPalettes = JSON.parse(localStorage.getItem(customPalettesKey) || "[]");
+          if (!Array.isArray(customPalettes)) customPalettes = [];
+        } catch (e) {
+          customPalettes = [];
+        }
+        // Merged, mutable working list: built-in themes from source, plus
+        // whatever the user has saved locally via the palette editor.
+        var allThemes = builtInThemes.concat(customPalettes);
+
+        function findTheme(id) {
+          for (var i = 0; i < allThemes.length; i++) {
+            if (allThemes[i].id === id) return allThemes[i];
+          }
+          return null;
+        }
+
+        function persistCustomPalettes() {
+          try {
+            localStorage.setItem(customPalettesKey, JSON.stringify(customPalettes));
+          } catch (e) {}
+        }
+
+        function apply(id) {
+          var theme = findTheme(id) || allThemes[0];
+          var root = document.documentElement;
+          for (var j = 0; j < allThemeVarKeys.length; j++) {
+            root.style.removeProperty("--" + allThemeVarKeys[j]);
+          }
+          if (theme.vars) {
+            for (var key in theme.vars) {
+              root.style.setProperty("--" + key, theme.vars[key]);
+            }
+          }
+          root.setAttribute("data-theme", theme.id);
+          if (theme.fontLinks) {
+            theme.fontLinks.forEach(function (href) {
+              if (href && !document.querySelector('link[data-theme-font="' + href + '"]')) {
+                var link = document.createElement("link");
+                link.rel = "stylesheet";
+                link.href = href;
+                link.setAttribute("data-theme-font", href);
+                document.head.appendChild(link);
+              }
+            });
+          }
+          try {
+            localStorage.setItem(activeThemeKey, theme.id);
+          } catch (e) {}
+        }
+
+        window.__afhApplyTheme = apply;
+        window.__afhGetThemes = function () {
+          return allThemes.slice();
+        };
+        window.__afhAddCustomTheme = function (theme) {
+          customPalettes.push(theme);
+          allThemes.push(theme);
+          persistCustomPalettes();
+        };
+        window.__afhRemoveCustomTheme = function (id) {
+          customPalettes = customPalettes.filter(function (t) {
+            return t.id !== id;
+          });
+          allThemes = builtInThemes.concat(customPalettes);
+          persistCustomPalettes();
+        };
+        window.__afhIsCustomTheme = function (id) {
+          for (var i = 0; i < customPalettes.length; i++) {
+            if (customPalettes[i].id === id) return true;
+          }
+          return false;
+        };
+
+        var saved = defaultThemeId;
+        try {
+          saved = localStorage.getItem(activeThemeKey) || defaultThemeId;
+        } catch (e) {}
+        apply(saved);
+      })();
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <Header />
     <main id="main-content" tabindex="-1"><slot /></main>
     <Footer />
+    <ThemeSwitcher />
   </body>
 </html>

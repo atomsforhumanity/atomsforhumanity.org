@@ -1,0 +1,482 @@
+---
+import { themes, DEFAULT_THEME_ID, THEME_COLOR_KEYS, THEME_FONT_KEYS } from "../data/themes";
+
+const COLOR_FIELDS: Array<{ key: (typeof THEME_COLOR_KEYS)[number]; label: string }> = [
+  { key: "accent", label: "Accent" },
+  { key: "accent-muted", label: "Accent (muted)" },
+  { key: "accent-dark", label: "Accent (dark)" },
+  { key: "accent-cool", label: "Accent (cool)" },
+  { key: "bg-primary", label: "Background primary" },
+  { key: "bg-secondary", label: "Background secondary" },
+  { key: "bg-elevated", label: "Background elevated" },
+  { key: "bg-light", label: "Background light (section)" },
+  { key: "bg-light-bright", label: "Background light (bright section)" },
+  { key: "text-primary", label: "Text primary" },
+  { key: "text-secondary", label: "Text secondary" },
+  { key: "text-muted", label: "Text muted" },
+  { key: "text-dark", label: "Text dark (on light sections)" },
+  { key: "text-dark-secondary", label: "Text dark secondary" },
+];
+---
+
+<div class="theme-switcher" data-theme-switcher>
+  <div class="ts-bar">
+    <label class="ts-bar__label" for="theme-switcher-select">Design mode</label>
+    <select id="theme-switcher-select" class="ts-bar__select">
+      {themes.map((t) => <option value={t.id}>{t.label}</option>)}
+    </select>
+    <button type="button" id="ts-toggle-editor" class="ts-bar__toggle" aria-expanded="false" aria-controls="ts-editor">
+      Edit colors
+    </button>
+  </div>
+
+  <div class="ts-editor" id="ts-editor" hidden>
+    <p class="ts-editor__hint">Type a hex code or use the swatch — changes preview live.</p>
+
+    <div class="ts-editor__grid">
+      {COLOR_FIELDS.map((f) => (
+        <div class="ts-field" data-var={f.key}>
+          <label for={`ts-hex-${f.key}`}>{f.label}</label>
+          <div class="ts-field__inputs">
+            <input type="color" id={`ts-swatch-${f.key}`} class="ts-swatch" data-var-key={f.key} />
+            <input
+              type="text"
+              id={`ts-hex-${f.key}`}
+              class="ts-hex"
+              data-var-key={f.key}
+              placeholder="#rrggbb"
+              inputmode="text"
+              spellcheck="false"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="ts-editor__fonts">
+      <div class="ts-field">
+        <label for="ts-font-font-heading">Heading font family</label>
+        <input type="text" id="ts-font-font-heading" class="ts-text" data-font-key="font-heading" placeholder='"Montserrat", sans-serif' />
+      </div>
+      <div class="ts-field">
+        <label for="ts-font-link-font-heading">Heading font stylesheet URL (optional)</label>
+        <input type="text" id="ts-font-link-font-heading" class="ts-text" data-font-link-key="font-heading" placeholder="https://fonts.googleapis.com/css2?family=..." />
+      </div>
+      <div class="ts-field">
+        <label for="ts-font-font-sans">Sans font family</label>
+        <input type="text" id="ts-font-font-sans" class="ts-text" data-font-key="font-sans" placeholder='"Geist Variable", sans-serif' />
+      </div>
+      <div class="ts-field">
+        <label for="ts-font-link-font-sans">Sans font stylesheet URL (optional)</label>
+        <input type="text" id="ts-font-link-font-sans" class="ts-text" data-font-link-key="font-sans" placeholder="https://fonts.googleapis.com/css2?family=..." />
+      </div>
+      <div class="ts-field">
+        <label for="ts-font-font-mono">Mono font family</label>
+        <input type="text" id="ts-font-font-mono" class="ts-text" data-font-key="font-mono" placeholder='"Geist Mono Variable", monospace' />
+      </div>
+      <div class="ts-field">
+        <label for="ts-font-link-font-mono">Mono font stylesheet URL (optional)</label>
+        <input type="text" id="ts-font-link-font-mono" class="ts-text" data-font-link-key="font-mono" placeholder="https://fonts.googleapis.com/css2?family=..." />
+      </div>
+    </div>
+
+    <div class="ts-editor__actions">
+      <input type="text" id="ts-palette-name" class="ts-text ts-text--name" placeholder="Palette name" />
+      <div class="ts-editor__buttons">
+        <button type="button" id="ts-save" class="ts-btn ts-btn--primary">Save palette</button>
+        <button type="button" id="ts-reset" class="ts-btn">Reset edits</button>
+        <button type="button" id="ts-delete" class="ts-btn ts-btn--danger" hidden>Delete</button>
+      </div>
+    </div>
+
+    <p class="ts-editor__status" id="ts-status" role="status"></p>
+    <textarea id="ts-snippet" class="ts-snippet" readonly hidden rows="6"></textarea>
+  </div>
+</div>
+
+<style>
+  .theme-switcher {
+    position: fixed;
+    z-index: 200;
+    right: 1rem;
+    bottom: 1rem;
+    width: min(360px, calc(100vw - 2rem));
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  .ts-bar {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    padding: .55rem .7rem;
+    background: #12201b;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+  .ts-bar__label {
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #a7b5af;
+    white-space: nowrap;
+  }
+  .ts-bar__select {
+    flex: 1;
+    min-width: 0;
+    min-height: 32px;
+    padding: .2rem .4rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: #16211e;
+    color: #f0f5f2;
+    font-size: .8rem;
+  }
+  .ts-bar__toggle {
+    min-height: 32px;
+    padding: 0 .6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: transparent;
+    color: #f0f5f2;
+    font-size: .74rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .ts-bar__toggle:hover, .ts-bar__toggle[aria-expanded="true"] {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .ts-editor {
+    margin-top: .5rem;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: .85rem .85rem 1rem;
+    background: #12201b;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+  .ts-editor__hint {
+    margin: 0 0 .7rem;
+    font-size: .72rem;
+    color: #a7b5af;
+  }
+  .ts-editor__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .55rem .6rem;
+  }
+  .ts-editor__fonts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .55rem .6rem;
+    margin-top: .8rem;
+    padding-top: .8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .ts-field {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    min-width: 0;
+  }
+  .ts-field label {
+    font-size: .66rem;
+    color: #a7b5af;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .ts-field__inputs {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+  }
+  .ts-swatch {
+    flex: none;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+  }
+  .ts-hex, .ts-text {
+    min-width: 0;
+    flex: 1;
+    min-height: 30px;
+    padding: .2rem .45rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: #16211e;
+    color: #f0f5f2;
+    font-size: .76rem;
+    font-family: ui-monospace, monospace;
+  }
+  .ts-text { font-family: inherit; }
+  .ts-hex.is-invalid { border-color: #e2725b; }
+  .ts-editor__actions {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-top: .85rem;
+    padding-top: .8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .ts-text--name { width: 100%; min-height: 34px; font-size: .82rem; }
+  .ts-editor__buttons { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .ts-btn {
+    min-height: 34px;
+    padding: 0 .75rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: transparent;
+    color: #f0f5f2;
+    font-size: .78rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .ts-btn:hover { background: rgba(255, 255, 255, 0.08); }
+  .ts-btn--primary { background: #42ddb1; border-color: #42ddb1; color: #0b1110; }
+  .ts-btn--primary:hover { background: #68e6c2; border-color: #68e6c2; }
+  .ts-btn--danger { color: #e2725b; border-color: rgba(226, 114, 91, 0.4); }
+  .ts-btn--danger:hover { background: rgba(226, 114, 91, 0.12); }
+  .ts-editor__status {
+    min-height: 1em;
+    margin: .6rem 0 0;
+    font-size: .72rem;
+    color: #42ddb1;
+  }
+  .ts-snippet {
+    width: 100%;
+    margin-top: .5rem;
+    padding: .5rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: #0b1110;
+    color: #a7b5af;
+    font-family: ui-monospace, monospace;
+    font-size: .68rem;
+    resize: vertical;
+  }
+  @media (max-width: 480px) {
+    .theme-switcher { left: 1rem; right: 1rem; width: auto; }
+    .ts-editor__grid, .ts-editor__fonts { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script is:inline define:vars={{ defaultThemeId: DEFAULT_THEME_ID, colorKeys: THEME_COLOR_KEYS, fontKeys: THEME_FONT_KEYS }}>
+  (function () {
+    var root = document.documentElement;
+    var select = document.getElementById("theme-switcher-select");
+    var toggleBtn = document.getElementById("ts-toggle-editor");
+    var editor = document.getElementById("ts-editor");
+    var saveBtn = document.getElementById("ts-save");
+    var resetBtn = document.getElementById("ts-reset");
+    var deleteBtn = document.getElementById("ts-delete");
+    var nameInput = document.getElementById("ts-palette-name");
+    var statusEl = document.getElementById("ts-status");
+    var snippetEl = document.getElementById("ts-snippet");
+    if (!select || !editor) return;
+
+    var HEX_RE = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+
+    function normalizeHexForSwatch(value) {
+      if (!value) return null;
+      var v = value.trim();
+      if (!HEX_RE.test(v)) return null;
+      if (v.length === 4) {
+        v = "#" + v[1] + v[1] + v[2] + v[2] + v[3] + v[3];
+      }
+      return v.toLowerCase();
+    }
+
+    function refreshSelectOptions(selectedId) {
+      var allThemes = window.__afhGetThemes ? window.__afhGetThemes() : [];
+      var builtInIds = {};
+      allThemes.forEach(function (t) {
+        if (!window.__afhIsCustomTheme || !window.__afhIsCustomTheme(t.id)) builtInIds[t.id] = true;
+      });
+      select.innerHTML = "";
+      var builtInGroup = document.createElement("optgroup");
+      builtInGroup.label = "Built-in";
+      var customGroup = document.createElement("optgroup");
+      customGroup.label = "Saved palettes";
+      allThemes.forEach(function (t) {
+        var opt = document.createElement("option");
+        opt.value = t.id;
+        opt.textContent = t.label;
+        if (builtInIds[t.id]) builtInGroup.appendChild(opt);
+        else customGroup.appendChild(opt);
+      });
+      select.appendChild(builtInGroup);
+      if (customGroup.children.length) select.appendChild(customGroup);
+      select.value = selectedId;
+    }
+
+    function populateEditorFromCurrentStyles() {
+      var computed = getComputedStyle(root);
+      colorKeys.forEach(function (key) {
+        var hexInput = document.getElementById("ts-hex-" + key);
+        var swatchInput = document.getElementById("ts-swatch-" + key);
+        var value = computed.getPropertyValue("--" + key).trim();
+        if (hexInput) {
+          hexInput.value = value;
+          hexInput.classList.remove("is-invalid");
+        }
+        var swatchValue = normalizeHexForSwatch(value);
+        if (swatchInput && swatchValue) swatchInput.value = swatchValue;
+      });
+      fontKeys.forEach(function (key) {
+        var fontInput = document.getElementById("ts-font-" + key);
+        if (fontInput) fontInput.value = computed.getPropertyValue("--" + key).trim();
+        var linkInput = document.getElementById("ts-font-link-" + key);
+        if (linkInput) linkInput.value = "";
+      });
+      statusEl.textContent = "";
+      snippetEl.hidden = true;
+      deleteBtn.hidden = !(window.__afhIsCustomTheme && window.__afhIsCustomTheme(select.value));
+    }
+
+    toggleBtn.addEventListener("click", function () {
+      var isOpen = !editor.hidden;
+      editor.hidden = isOpen;
+      toggleBtn.setAttribute("aria-expanded", String(!isOpen));
+      if (!isOpen) populateEditorFromCurrentStyles();
+    });
+
+    select.addEventListener("change", function () {
+      if (window.__afhApplyTheme) window.__afhApplyTheme(select.value);
+      if (!editor.hidden) populateEditorFromCurrentStyles();
+    });
+
+    editor.addEventListener("input", function (e) {
+      var target = e.target;
+      if (target.classList.contains("ts-hex")) {
+        var key = target.dataset.varKey;
+        var value = target.value.trim();
+        if (value === "") {
+          target.classList.remove("is-invalid");
+          root.style.removeProperty("--" + key);
+          return;
+        }
+        if (!HEX_RE.test(value)) {
+          target.classList.add("is-invalid");
+          return;
+        }
+        target.classList.remove("is-invalid");
+        root.style.setProperty("--" + key, value);
+        var swatch = document.getElementById("ts-swatch-" + key);
+        var normalized = normalizeHexForSwatch(value);
+        if (swatch && normalized) swatch.value = normalized;
+      } else if (target.classList.contains("ts-swatch")) {
+        var vkey = target.dataset.varKey;
+        root.style.setProperty("--" + vkey, target.value);
+        var hexField = document.getElementById("ts-hex-" + vkey);
+        if (hexField) {
+          hexField.value = target.value;
+          hexField.classList.remove("is-invalid");
+        }
+      } else if (target.dataset.fontKey) {
+        var fkey = target.dataset.fontKey;
+        var fvalue = target.value.trim();
+        if (fvalue) root.style.setProperty("--" + fkey, fvalue);
+        else root.style.removeProperty("--" + fkey);
+      }
+    });
+
+    editor.addEventListener("change", function (e) {
+      var target = e.target;
+      if (target.dataset.fontLinkKey) {
+        var href = target.value.trim();
+        if (href && !document.querySelector('link[data-theme-font="' + href + '"]')) {
+          var link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = href;
+          link.setAttribute("data-theme-font", href);
+          document.head.appendChild(link);
+        }
+      }
+    });
+
+    resetBtn.addEventListener("click", function () {
+      if (window.__afhApplyTheme) window.__afhApplyTheme(select.value);
+      populateEditorFromCurrentStyles();
+      statusEl.textContent = "Reverted to the saved version of this mode.";
+    });
+
+    function slugify(label) {
+      var base = label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      return (base || "palette") + "-" + Date.now().toString(36);
+    }
+
+    saveBtn.addEventListener("click", function () {
+      var name = nameInput.value.trim() || "Custom palette";
+      var vars = {};
+      var hasInvalid = false;
+      colorKeys.forEach(function (key) {
+        var hexInput = document.getElementById("ts-hex-" + key);
+        var value = hexInput.value.trim();
+        if (value === "") return;
+        if (!HEX_RE.test(value)) {
+          hasInvalid = true;
+          return;
+        }
+        vars[key] = value;
+      });
+      if (hasInvalid) {
+        statusEl.textContent = "Fix invalid hex codes (highlighted) before saving.";
+        return;
+      }
+      fontKeys.forEach(function (key) {
+        var fontInput = document.getElementById("ts-font-" + key);
+        var value = fontInput ? fontInput.value.trim() : "";
+        if (value) vars[key] = value;
+      });
+      var fontLinks = [];
+      fontKeys.forEach(function (key) {
+        var linkInput = document.getElementById("ts-font-link-" + key);
+        var href = linkInput ? linkInput.value.trim() : "";
+        if (href) fontLinks.push(href);
+      });
+
+      var theme = { id: slugify(name), label: name, vars: vars };
+      if (fontLinks.length) theme.fontLinks = fontLinks;
+
+      if (window.__afhAddCustomTheme) window.__afhAddCustomTheme(theme);
+      refreshSelectOptions(theme.id);
+      if (window.__afhApplyTheme) window.__afhApplyTheme(theme.id);
+      deleteBtn.hidden = false;
+
+      var snippet = JSON.stringify(theme, null, 2) + ",";
+      snippetEl.value = snippet;
+      snippetEl.hidden = false;
+      var copied = false;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(snippet);
+          copied = true;
+        }
+      } catch (e) {}
+      statusEl.textContent = copied
+        ? 'Saved "' + name + '" — it will reload with this browser. Snippet copied; paste it into src/data/themes.ts (or ask Claude to add it) to make it permanent for everyone.'
+        : 'Saved "' + name + '" — it will reload with this browser. Copy the snippet below into src/data/themes.ts (or ask Claude to add it) to make it permanent for everyone.';
+    });
+
+    deleteBtn.addEventListener("click", function () {
+      var id = select.value;
+      if (!window.__afhIsCustomTheme || !window.__afhIsCustomTheme(id)) return;
+      if (window.__afhRemoveCustomTheme) window.__afhRemoveCustomTheme(id);
+      refreshSelectOptions(defaultThemeId);
+      if (window.__afhApplyTheme) window.__afhApplyTheme(defaultThemeId);
+      populateEditorFromCurrentStyles();
+      statusEl.textContent = "Deleted. Back to base.";
+    });
+
+    refreshSelectOptions(root.getAttribute("data-theme") || defaultThemeId);
+  })();
+</script>

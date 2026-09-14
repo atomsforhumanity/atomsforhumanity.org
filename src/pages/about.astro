@@ -73,7 +73,7 @@ import { organization } from "../data/organization";
 </BaseLayout>
 
 <style>
-  .about-hero::before { content: "AFH"; position: absolute; inset: auto var(--gutter) -12% auto; color: rgba(66,221,177,.028); font: 600 clamp(15rem, 36vw, 34rem)/.75 var(--font-mono); letter-spacing: -.12em; }
+  .about-hero::before { content: "AFH"; position: absolute; inset: auto var(--gutter) -12% auto; color: color-mix(in srgb, var(--accent) 2.8%, transparent); font: 600 clamp(15rem, 36vw, 34rem)/.75 var(--font-mono); letter-spacing: -.12em; }
   .mission-section { padding-block: clamp(7rem, 14vw, 12rem); }
   .mission-grid { display: grid; grid-template-columns: minmax(170px, .4fr) minmax(0, 1.6fr); gap: clamp(2rem, 6vw, 6rem); }
   .mission-grid h2 { max-width: 980px; margin: 0; font-size: clamp(2.6rem, 5.4vw, 5rem); }
@@ -86,7 +86,7 @@ import { organization } from "../data/organization";
   .public-good-grid .copy-stack { margin-top: 2rem; }
   .reuse-card { position: relative; min-height: 390px; display: flex; flex-direction: column; justify-content: end; padding: clamp(1.6rem, 4vw, 2.6rem); border: 1px solid var(--border-light); border-radius: var(--radius-md); overflow: hidden; }
   .reuse-card h3 { margin: 0; font-size: clamp(1.7rem, 3vw, 2.5rem); }.reuse-card > p:not(.section-label) { color: var(--text-dark-secondary); }
-  .reuse-lines { position: absolute; inset: 0; }.reuse-lines i { position: absolute; width: 200px; height: 200px; inset: -95px auto auto calc(50% - 100px); border: 1px solid rgba(36,124,104,.18); border-radius: 50%; }.reuse-lines i:nth-child(2) { transform: translateX(-60px); }.reuse-lines i:nth-child(3) { transform: translateX(60px); }.reuse-lines i:nth-child(4) { transform: translateY(60px); }
+  .reuse-lines { position: absolute; inset: 0; }.reuse-lines i { position: absolute; width: 200px; height: 200px; inset: -95px auto auto calc(50% - 100px); border: 1px solid color-mix(in srgb, var(--accent-dark) 18%, transparent); border-radius: 50%; }.reuse-lines i:nth-child(2) { transform: translateX(-60px); }.reuse-lines i:nth-child(3) { transform: translateX(60px); }.reuse-lines i:nth-child(4) { transform: translateY(60px); }
   .support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 8vw, 8rem); }.support-grid h2 { margin: 0; }.support-grid > div:last-child p { margin: 0; color: var(--text-secondary); font-size: 1.1rem; }.support-grid .text-link { margin-top: 1.8rem; }
   .support-grid .affiliation { margin-top: 1.3rem !important; color: var(--accent-muted) !important; font: 500 .75rem/1.4 var(--font-mono) !important; letter-spacing: .07em; text-transform: uppercase; }
   .cta-row { display: flex; justify-content: space-between; align-items: center; gap: 2rem; }.cta-row h2 { max-width: 760px; margin: 0; }.cta-row .button { flex: none; }

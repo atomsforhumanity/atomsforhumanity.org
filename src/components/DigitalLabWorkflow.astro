@@ -45,16 +45,16 @@ const experiments = ["EXPERIMENT 001", "EXPERIMENT 002", "EXPERIMENT 003", "EXPE
   .workflow-stage:not(:last-child)::after { position: absolute; z-index: 1; inset: 50% -.48rem auto auto; width: .32rem; content: "→"; color: var(--accent-muted); font: 500 .68rem/1 var(--font-mono); transform: translateY(-50%); }
   .workflow-stage span { display: block; margin-bottom: 1.4rem; color: var(--accent); font: 500 .61rem/1 var(--font-mono); }
   .workflow-stage strong { display: block; font: 500 clamp(.68rem, .85vw, .78rem)/1.25 var(--font-mono); letter-spacing: -.045em; white-space: nowrap; }
-  .scale-heading { display: flex; align-items: baseline; gap: 1rem; margin-top: 2rem; padding-bottom: .8rem; border-bottom: 1px solid rgba(66,221,177,.25); }
+  .scale-heading { display: flex; align-items: baseline; gap: 1rem; margin-top: 2rem; padding-bottom: .8rem; border-bottom: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); }
   .scale-heading strong { flex: none; color: var(--accent); font: 570 .82rem/1 var(--font-mono); letter-spacing: .12em; }
   .scale-heading span { color: var(--text-secondary); font-size: .78rem; }
   .experiment-field { padding-top: .65rem; }
   .experiment-lane { display: grid; grid-template-columns: 92px 1fr; align-items: center; gap: .8rem; min-height: 34px; }
   .experiment-lane > span { color: var(--text-muted); font: 500 .54rem/1 var(--font-mono); letter-spacing: .06em; }
   .lane-stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
-  .lane-stages i { height: 5px; background: rgba(66,221,177, calc(.18 + var(--stage) * .06)); border-radius: 1px; }
+  .lane-stages i { height: 5px; background: color-mix(in srgb, var(--accent) calc((.18 + var(--stage) * .06) * 100%), transparent); border-radius: 1px; }
   .experiment-lane--continuing { margin-top: .3rem; padding-top: .55rem; border-top: 1px dashed var(--border-dark); }
-  .experiment-lane--continuing .lane-stages i { background: transparent; border: 1px dashed rgba(66,221,177,.25); }
+  .experiment-lane--continuing .lane-stages i { background: transparent; border: 1px dashed color-mix(in srgb, var(--accent) 25%, transparent); }
   figcaption { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-dark); color: var(--text-muted); font: 450 .68rem/1.5 var(--font-mono); }
   @media (max-width: 480px) {
     header span:last-child { text-align: right; }

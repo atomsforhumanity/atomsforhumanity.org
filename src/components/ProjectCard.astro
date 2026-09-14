@@ -18,8 +18,8 @@ const { project, featured = false } = Astro.props;
 
 <style>
   .project-card { position: relative; display: flex; flex-direction: column; min-height: 300px; padding: clamp(1.5rem, 3vw, 2.15rem); background: var(--bg-elevated); border: 1px solid var(--border-dark); border-radius: var(--radius-md); overflow: hidden; transition: border-color var(--transition), transform var(--transition); }
-  .project-card::after { position: absolute; content: ""; width: 150px; height: 150px; inset: auto -70px -80px auto; border: 1px solid rgba(66,221,177,.16); border-radius: 50%; box-shadow: 0 0 0 25px rgba(66,221,177,.025), 0 0 0 50px rgba(66,221,177,.02); }
-  .project-card:hover { border-color: rgba(66,221,177,.35); transform: translateY(-2px); }
+  .project-card::after { position: absolute; content: ""; width: 150px; height: 150px; inset: auto -70px -80px auto; border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent); border-radius: 50%; box-shadow: 0 0 0 25px color-mix(in srgb, var(--accent) 2.5%, transparent), 0 0 0 50px color-mix(in srgb, var(--accent) 2%, transparent); }
+  .project-card:hover { border-color: color-mix(in srgb, var(--accent) 35%, transparent); transform: translateY(-2px); }
   .project-category { margin: 0 0 2.2rem; color: var(--accent-muted); font: 520 .7rem/1.2 var(--font-mono); letter-spacing: .12em; }
   .project-card h3 { margin: 0 0 1rem; font: 520 clamp(1.35rem, 2vw, 1.75rem)/1.2 var(--font-mono); letter-spacing: -.04em; }
   .project-prompt { margin-inline-end: .55rem; color: var(--accent); }
