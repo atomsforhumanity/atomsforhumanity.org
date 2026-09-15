@@ -1,29 +1,48 @@
+:root, .surface--paper {
+  color-scheme: light;
+  --bg-primary: #f8f7f3;
+  --bg-secondary: #fcfcfa;
+  --bg-blue-soft: #eaf0f8;
+  --bg-green-soft: #e7efe9;
+  --text-primary: #202a33;
+  --text-heading: #17324a;
+  --text-secondary: #4e5e6a;
+  --text-muted: #5e6d78;
+  --blue-primary: #3868b8;
+  --blue-dark: #17324a;
+  --blue-light: #7fa6df;
+  --green-muted: #638c78;
+  --green-dark: #496e5c;
+  --border: #d9dee3;
+  --border-strong: #9baec0;
+  --diagram-line: #7a8d9f;
+}
+
 :root {
-  --bg-primary: #0b1110;
-  --bg-secondary: #101816;
-  --bg-elevated: #16211e;
-  --bg-light: #edf3f0;
-  --bg-light-bright: #f7faf8;
-  --text-primary: #f0f5f2;
-  --text-secondary: #a7b5af;
-  --text-muted: #75847e;
-  --text-dark: #13201c;
-  --text-dark-secondary: #4c5e57;
-  --accent: #42ddb1;
-  --accent-muted: #7dbeac;
-  --accent-dark: #237864;
-  --accent-cool: #6fa9b8;
-  --border-dark: rgba(255, 255, 255, 0.09);
-  --border-light: rgba(19, 32, 28, 0.14);
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --content-width: 1280px;
-  --prose-width: 720px;
-  --gutter: clamp(1.2rem, 4vw, 3.5rem);
-  --section-space: clamp(5.5rem, 11vw, 9.5rem);
-  --header-height: 74px;
-  --font-sans: "Geist Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono Variable", "IBM Plex Mono", ui-monospace, monospace;
-  --transition: 180ms ease;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --content-width: 1240px;
+  --prose-width: 680px;
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+  --section-space: clamp(5rem, 9vw, 8.5rem);
+  --header-height: 84px;
+  --font-serif: "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
+  --font-sans: "Source Sans 3 Variable", "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --transition: 160ms ease;
+}
+
+/* Inverse surfaces are limited to the laboratory section and institutional footer. */
+.section--navy, .site-footer {
+  --text-primary: #f8f7f3;
+  --text-heading: #fcfcfa;
+  --text-secondary: #d3dde7;
+  --text-muted: #b4c5d5;
+  --border: #456077;
+  --link-color: #b1cbef;
+  --label-color: #b1cbef;
+  --focus-color: #b1cbef;
+  color-scheme: dark;
+  color: var(--text-primary);
+  background: var(--blue-dark);
 }

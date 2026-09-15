@@ -1,13 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#0B1110"/>
-  <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200M150 0v630M300 0v630M450 0v630M600 0v630M750 0v630M900 0v630M1050 0v630" stroke="#42DDB1" opacity=".035"/>
-  <circle cx="942" cy="314" r="118" fill="none" stroke="#42DDB1" opacity=".18"/>
-  <ellipse cx="942" cy="314" rx="206" ry="72" fill="none" stroke="#A7B5AF" opacity=".3" transform="rotate(28 942 314)"/>
-  <ellipse cx="942" cy="314" rx="206" ry="72" fill="none" stroke="#A7B5AF" opacity=".3" transform="rotate(-28 942 314)"/>
-  <circle cx="942" cy="314" r="31" fill="#42DDB1"/>
-  <circle cx="764" cy="218" r="8" fill="#42DDB1"/><circle cx="1120" cy="410" r="8" fill="#42DDB1"/>
-  <text x="92" y="123" fill="#42DDB1" font-family="Arial, sans-serif" font-size="21" letter-spacing="4">ATOMS FOR HUMANITY</text>
-  <text x="88" y="263" fill="#F0F5F2" font-family="Arial, sans-serif" font-size="67" font-weight="500">Building a sustainable</text>
-  <text x="88" y="343" fill="#F0F5F2" font-family="Arial, sans-serif" font-size="67" font-weight="500">molecular future.</text>
-  <text x="92" y="522" fill="#A7B5AF" font-family="Arial, sans-serif" font-size="26">Open infrastructure for molecular simulation at scale.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F8F7F3"/>
+  <path d="M80 155H1120M80 480H1120" stroke="#D9DEE3"/>
+  <text x="80" y="111" fill="#3868B8" font-family="'Source Sans 3 Variable', Arial, sans-serif" font-size="21" font-weight="600" letter-spacing="2">ATOMS FOR HUMANITY</text>
+  <text x="76" y="281" fill="#17324A" font-family="'Source Serif 4 Variable', Georgia, serif" font-size="70" font-weight="450" letter-spacing="-2">Building a sustainable</text>
+  <text x="76" y="365" fill="#17324A" font-family="'Source Serif 4 Variable', Georgia, serif" font-size="70" font-weight="450" letter-spacing="-2">molecular future.</text>
+  <g fill="none" stroke="#7A8D9F" stroke-width="1.5">
+    <path d="M896 342 952 244 1020 298 1102 219M952 244 982 180M1020 298 1075 409 1140 358"/>
+    <path d="M896 342 966 413 1075 409M1102 219 1140 358" stroke-dasharray="3 6"/>
+  </g>
+  <path d="M896 342 952 244 1020 298 1075 409" fill="none" stroke="#638C78" stroke-width="1.5"/>
+  <g fill="#F8F7F3" stroke="#3868B8" stroke-width="1.5">
+    <circle cx="896" cy="342" r="5"/><circle cx="952" cy="244" r="8"/>
+    <circle cx="1020" cy="298" r="10"/><circle cx="1102" cy="219" r="6"/>
+    <circle cx="982" cy="180" r="5"/><circle cx="1075" cy="409" r="7"/>
+    <circle cx="1140" cy="358" r="5"/><circle cx="966" cy="413" r="5"/>
+  </g>
+  <circle cx="1020" cy="298" r="4" fill="#3868B8"/>
+  <text x="80" y="539" fill="#4E5E6A" font-family="'Source Sans 3 Variable', Arial, sans-serif" font-size="26">Open infrastructure for molecular simulation at scale.</text>
 </svg>

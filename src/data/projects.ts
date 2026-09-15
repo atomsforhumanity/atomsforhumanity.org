@@ -53,7 +53,7 @@ export const projects = {
       "A distributed application for running quantum chemistry calculations at scale across clusters of computers or cloud infrastructure.",
     supportingLine:
       "BigChem turns individual molecular calculations into distributed computational workloads.",
-    repository: "https://github.com/mtzgroup/bigchem",
+    repository: "https://github.com/atomsforhumanity/bigchem",
   },
   chemcloud: {
     name: "ChemCloud",
@@ -63,8 +63,8 @@ export const projects = {
     supportingLine:
       "ChemCloud allows researchers and software systems to access scalable molecular computation without directly operating the underlying cluster infrastructure.",
     links: [
-      { label: "Server", href: "https://github.com/mtzgroup/chemcloud-server" },
-      { label: "Python client", href: "https://github.com/mtzgroup/chemcloud-client" },
+      { label: "Server", href: "https://github.com/atomsforhumanity/chemcloud-server" },
+      { label: "Python client", href: "https://github.com/atomsforhumanity/chemcloud-client" },
     ],
   },
 } satisfies Record<string, Project>;
@@ -82,7 +82,7 @@ export const technologyGroups = [
     name: "qc*",
     category: "INTEROPERABLE FOUNDATIONS",
     description:
-      "A family of interoperable tools providing common scientific data structures, program interfaces, physical reference data, parsing, and molecular informatics.",
+      "A family of interoperable tools providing common scientific data structures, program interfaces, physical reference data, parsing, and molecular informatics. qc* makes it easy to quickly adapt existing chemical simulation algorithms into an interoperable ecosystem of composable tools.",
   },
   projects.bigchem,
   projects.chemcloud,

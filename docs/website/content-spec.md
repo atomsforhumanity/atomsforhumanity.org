@@ -783,7 +783,7 @@ Supporting line:
 
 Repository:
 
-https://github.com/mtzgroup/bigchem
+https://github.com/atomsforhumanity/bigchem
 
 ---
 
@@ -803,11 +803,11 @@ Supporting line:
 
 Server:
 
-https://github.com/mtzgroup/chemcloud-server
+https://github.com/atomsforhumanity/chemcloud-server
 
 Python client:
 
-https://github.com/mtzgroup/chemcloud-client
+https://github.com/atomsforhumanity/chemcloud-client
 
 ---
 
@@ -1395,13 +1395,13 @@ qccompute
 https://github.com/atomsforhumanity/qccompute
 
 BigChem
-https://github.com/mtzgroup/bigchem
+https://github.com/atomsforhumanity/bigchem
 
 ChemCloud Server
-https://github.com/mtzgroup/chemcloud-server
+https://github.com/atomsforhumanity/chemcloud-server
 
 ChemCloud Client
-https://github.com/mtzgroup/chemcloud-client
+https://github.com/atomsforhumanity/chemcloud-client
 
 AFH GitHub
 https://github.com/atomsforhumanity
