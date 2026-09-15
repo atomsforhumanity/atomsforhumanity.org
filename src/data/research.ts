@@ -32,6 +32,6 @@ export const researchAreas: ResearchArea[] = [
     shortTitle: "Sustainable polymers and materials",
     title: "Design molecular systems with their consequences in mind.",
     description:
-      "Materials and polymers shape nearly every part of modern life. We are interested in molecular systems that can deliver useful performance while improving compatibility with human and environmental health.",
+      "Materials and polymers shape nearly every part of modern life. We are interested in molecular systems that can deliver superior performance while improving compatibility with human and environmental health.",
   },
 ];

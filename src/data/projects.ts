@@ -82,7 +82,7 @@ export const technologyGroups = [
     name: "qc*",
     category: "INTEROPERABLE FOUNDATIONS",
     description:
-      "A family of interoperable tools providing common scientific data structures, program interfaces, physical reference data, parsing, and molecular informatics.",
+      "A family of interoperable tools providing common scientific data structures, program interfaces, physical reference data, parsing, and molecular informatics. qc* makes it easy to quickly adapt existing chemical simulation algorithms into an interoperable ecosystem of composable tools.",
   },
   projects.bigchem,
   projects.chemcloud,
