@@ -50,6 +50,33 @@ export const themes: ThemeDefinition[] = [
   ]
 },
   {
+    id: "hearth-a8k2p9qz",
+    label: "hearth",
+    vars: {
+      accent: "#4B7B4F",
+      "accent-muted": "#5E7D59",
+      "accent-dark": "#2E4F34",
+      "accent-cool": "#5C8577",
+      "bg-primary": "#F3ECE0",
+      "bg-secondary": "#EAE0D0",
+      "bg-elevated": "#E3D6C3",
+      "bg-light": "#F7F1E6",
+      "bg-light-bright": "#FDFAF3",
+      "text-primary": "#241C14",
+      "text-secondary": "#5B4E3F",
+      "text-muted": "#7A6D5B",
+      "text-dark": "#241C14",
+      "text-dark-secondary": "#5B4E3F",
+      "border-dark": "rgba(36,28,20,.12)",
+      "font-heading": '"Bitter", Georgia, "Times New Roman", serif',
+      "font-sans": '"Karla", ui-sans-serif, system-ui, sans-serif',
+      "font-mono": '"JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace',
+    },
+    fontLinks: [
+      "https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap",
+    ],
+  },
+  {
     id: "lavender-feel-mu1sjyty",
     label: "lavender_feel",
     vars: {
@@ -101,7 +128,15 @@ export const THEME_COLOR_KEYS = [
 
 export const THEME_FONT_KEYS = ["font-heading", "font-sans", "font-mono"] as const;
 
-export const THEME_VAR_KEYS = [...THEME_COLOR_KEYS, ...THEME_FONT_KEYS];
+/**
+ * Hairline colors. Not exposed as hex swatches in the live editor (they're
+ * translucent rgba, not plain hex), but still need to be cleared/reapplied on
+ * every theme switch — otherwise a theme that overrides them would leak its
+ * override into the next theme selected. See THEME_VAR_KEYS.
+ */
+export const THEME_BORDER_KEYS = ["border-dark", "border-light"] as const;
+
+export const THEME_VAR_KEYS = [...THEME_COLOR_KEYS, ...THEME_FONT_KEYS, ...THEME_BORDER_KEYS];
 
 /** localStorage keys shared by the head script and the editor UI. */
 export const STORAGE_KEYS = {
