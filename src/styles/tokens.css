@@ -26,9 +26,9 @@
   --gutter: clamp(1.25rem, 5vw, 5rem);
   --section-space: clamp(5rem, 9vw, 8.5rem);
   --header-height: 84px;
-  --font-serif: "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
-  --font-sans: "Source Sans 3 Variable", "Segoe UI", sans-serif;
-  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --font-serif: "Simonetta", Georgia, "Times New Roman", serif;
+  --font-sans: "Lora Variable", Georgia, "Times New Roman", serif;
+  --font-mono: "Hind Madurai", "Segoe UI", sans-serif;
   --transition: 160ms ease;
 }
 
