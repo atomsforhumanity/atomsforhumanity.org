@@ -58,7 +58,7 @@ import { projects, qcProjects } from "../data/projects";
       <SectionHeader light label="AFH COMPUTE" heading="Compute where the science needs it." />
       <div class="copy-stack">
         <p>AFH operates computational infrastructure to support development, research, and shared scientific workloads. The software stack is designed to operate across local machines, clusters, cloud resources, CPUs, and GPUs rather than depend on any single computing environment.</p>
-        <div class="compute-row" aria-label="Supported computing environments"><span>LOCAL</span><span>CLUSTERS</span><span>HPC</span><span>CLOUD</span><span>CPU</span><span>GPU</span></div>
+        <div class="compute-row" role="group" aria-label="Supported computing environments"><span>LOCAL</span><span>CLUSTERS</span><span>HPC</span><span>CLOUD</span><span>CPU</span><span>GPU</span></div>
       </div>
     </div>
   </section>
@@ -72,7 +72,7 @@ import { projects, qcProjects } from "../data/projects";
           <p>The longer-term opportunity is not simply AI that proposes chemistry, but AI that can interact with a digital chemical laboratory: construct experiments, run simulations, inspect results, and iterate.</p>
         </div>
       </div>
-      <div class="access-diagram" aria-label="Researchers and AI systems connect to the same digital laboratory">
+      <div class="access-diagram" role="group" aria-label="Researchers and AI systems connect to the same digital laboratory">
         <div class="access-users"><span>Researcher</span><span>AI system</span></div>
         <div class="access-lines" aria-hidden="true"></div>
         <div class="access-lab"><small>SHARED SCIENTIFIC ENVIRONMENT</small><strong>AFH Digital Laboratory</strong><span>construct · run · inspect · iterate</span></div>
@@ -90,25 +90,22 @@ import { projects, qcProjects } from "../data/projects";
 
 <style>
   .technology-hero .lede p { margin: 0; }.technology-hero .lede p + p { margin-top: 1rem; }
-  .qc-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; margin-top: 3.5rem; }
-  .qc-grid > :global(article) { grid-column: span 2; }
-  .qc-grid > :global(article:nth-child(4)) { grid-column: 2 / span 2; }
-  .qc-grid > :global(article:nth-child(5)) { grid-column: 4 / span 2; }
+  .qc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 4rem; margin-top: 3.5rem; }
   .distributed-grid { display: grid; grid-template-columns: 1fr 96px 1fr; gap: 1rem; align-items: center; margin-top: 3.5rem; }
-  .flow-connector { color: var(--text-muted); text-align: center; font: 450 .6rem/1.4 var(--font-mono); letter-spacing: .04em; }
-  .flow-connector i { display: block; margin-top: .5rem; color: var(--accent); font-style: normal; font-size: 1.2rem; }
-  .compute-row { display: flex; flex-wrap: wrap; margin-top: 2rem; border-block: 1px solid var(--border-light); }
-  .compute-row span { padding: .9rem 1.1rem; color: var(--accent-dark); font: 550 .67rem/1 var(--font-mono); letter-spacing: .08em; }
-  .compute-row span + span { border-left: 1px solid var(--border-light); }
+  .flow-connector { color: var(--text-muted); text-align: center; font: 500 .8rem/1.4 var(--font-sans); letter-spacing: .04em; }
+  .flow-connector i { display: block; margin-top: .5rem; color: var(--blue-primary); font-style: normal; font-size: 1.2rem; }
+  .compute-row { display: flex; flex-wrap: wrap; margin-top: 2rem; border-block: 1px solid var(--border); }
+  .compute-row span { padding: .9rem 1.1rem; color: var(--blue-primary); font: 600 .8rem/1.2 var(--font-sans); letter-spacing: .08em; }
+  .compute-row span + span { border-left: 1px solid var(--border); }
   .ai-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(380px, .8fr); align-items: center; gap: clamp(3rem, 8vw, 8rem); }
   .ai-grid .copy-stack { margin-top: 2rem; }
-  .access-diagram { padding: 2rem; background: var(--bg-elevated); border: 1px solid var(--border-dark); border-radius: var(--radius-md); }
+  .access-diagram { padding: clamp(1.25rem, 3vw, 2rem); background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-md); }
   .access-users { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .access-users span { padding: 1rem; border: 1px solid var(--border-dark); border-radius: var(--radius-sm); text-align: center; font: 500 .84rem/1 var(--font-mono); }
-  .access-lines { position: relative; height: 58px; width: 50%; margin: auto; border: solid rgba(66,221,177,.3); border-width: 0 1px 1px; }
-  .access-lab { display: flex; flex-direction: column; padding: 1.5rem; border: 1px solid rgba(66,221,177,.3); border-radius: var(--radius-sm); background: rgba(36,124,104,.09); }
-  .access-lab small { color: var(--accent); font: 500 .58rem/1.3 var(--font-mono); letter-spacing: .08em; }.access-lab strong { margin-top: .7rem; font-size: 1.2rem; font-weight: 520; }.access-lab span { margin-top: .6rem; color: var(--text-muted); font: .68rem var(--font-mono); }
+  .access-users span { padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); text-align: center; font: 600 1rem/1.3 var(--font-sans); }
+  .access-lines { position: relative; height: 58px; width: 50%; margin: auto; border: solid var(--border-strong); border-width: 0 1px 1px; }
+  .access-lab { display: flex; flex-direction: column; padding: 1.5rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--bg-blue-soft); }
+  .access-lab small { color: var(--blue-primary); font: 600 .75rem/1.4 var(--font-sans); letter-spacing: .08em; }.access-lab strong { margin-top: .7rem; font-size: 1.2rem; font-weight: 520; }.access-lab span { margin-top: .6rem; color: var(--text-muted); font: .9rem var(--font-sans); }
   .github-callout { display: flex; justify-content: space-between; align-items: end; gap: 3rem; }.github-callout h2 { margin: 0; }.github-callout p:not(.section-label) { max-width: 650px; color: var(--text-secondary); }.github-callout .button { flex: none; }
-  @media (max-width: 900px) { .qc-grid { grid-template-columns: repeat(2, 1fr); }.qc-grid > :global(article), .qc-grid > :global(article:nth-child(4)), .qc-grid > :global(article:nth-child(5)) { grid-column: auto; }.qc-grid > :global(article:last-child) { grid-column: 1 / -1; }.ai-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .ai-grid { grid-template-columns: 1fr; } }
   @media (max-width: 700px) { .distributed-grid { grid-template-columns: 1fr; }.flow-connector i { transform: rotate(90deg); }.qc-grid { grid-template-columns: 1fr; }.qc-grid > :global(article:last-child) { grid-column: auto; }.github-callout { align-items: start; flex-direction: column; }.compute-row span { flex: 1 1 33%; text-align: center; } }
 </style>

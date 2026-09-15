@@ -22,13 +22,14 @@
 </figure>
 
 <style>
-  .network-figure { margin: 0; padding: clamp(1rem, 2.5vw, 2rem); background: rgba(22,33,30,.7); border: 1px solid var(--border-dark); border-radius: var(--radius-md); }
+  .network-figure { margin: 0; padding: 1rem 0; }
   svg { display: block; width: 100%; }
-  .network-paths { fill: none; stroke: rgba(167,181,175,.35); stroke-width: 1.25; }
-  .network-path--ghost { stroke: rgba(66,221,177,.18); stroke-dasharray: 3 6; }
-  .network-nodes circle { fill: var(--bg-secondary); stroke: var(--accent-muted); stroke-width: 1.5; }
-  .network-nodes .node-active { fill: var(--accent); stroke: none; }
-  .network-labels { fill: var(--text-muted); font: 9px var(--font-mono); letter-spacing: 1.2px; }
-  figcaption { display: flex; justify-content: space-between; gap: 1rem; padding-top: .8rem; border-top: 1px solid var(--border-dark); color: var(--text-muted); font: 500 .62rem/1.4 var(--font-mono); letter-spacing: .08em; }
+  .network-paths { fill: none; stroke: var(--diagram-line); stroke-width: 1.5; }
+  .network-path--ghost { stroke: var(--green-muted); stroke-dasharray: 3 6; }
+  .network-nodes circle { fill: var(--bg-secondary); stroke: var(--blue-primary); stroke-width: 1.7; }
+  .network-nodes .node-active { fill: var(--blue-primary); stroke: none; }
+  .network-labels { fill: var(--text-secondary); font: 12px var(--font-sans); letter-spacing: .5px; }
+  figcaption { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--text-muted); font: 500 .75rem/1.5 var(--font-sans); letter-spacing: .035em; }
   figcaption span:last-child { text-align: right; letter-spacing: 0; }
+  @media (max-width: 480px) { figcaption { flex-direction: column; gap: .25rem; }figcaption span:last-child { text-align: left; } }
 </style>
