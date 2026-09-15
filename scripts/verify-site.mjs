@@ -87,9 +87,9 @@ for (const href of [
   "https://github.com/atomsforhumanity/qccodec",
   "https://github.com/atomsforhumanity/qccompute",
   "https://qccompute.docs.atomsforhumanity.org/",
-  "https://github.com/mtzgroup/bigchem",
-  "https://github.com/mtzgroup/chemcloud-server",
-  "https://github.com/mtzgroup/chemcloud-client",
+  "https://github.com/atomsforhumanity/bigchem",
+  "https://github.com/atomsforhumanity/chemcloud-server",
+  "https://github.com/atomsforhumanity/chemcloud-client",
 ]) {
   if (!technologyHtml.includes(`href="${href}" target="_blank" rel="noopener noreferrer"`)) {
     failures.push(`/technology: project link does not open safely in a new tab: ${href}`);
