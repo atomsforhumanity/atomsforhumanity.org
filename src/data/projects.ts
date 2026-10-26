@@ -9,12 +9,12 @@ export interface Project {
 }
 
 export const projects = {
-  qcconst: {
-    name: "qcconst",
+  qcref: {
+    name: "qcref",
     category: "REFERENCE DATA",
     description:
       "NIST/CODATA 2022 physical constants, conversion factors, and periodic-table data with clear source information for every value.",
-    repository: "https://github.com/atomsforhumanity/qcconst",
+    repository: "https://github.com/atomsforhumanity/qcref",
   },
   qcdata: {
     name: "qcdata",
@@ -37,6 +37,7 @@ export const projects = {
     description:
       "A translation layer that encodes structured qcdata inputs into native quantum chemistry program inputs and decodes program outputs back into structured scientific data.",
     repository: "https://github.com/atomsforhumanity/qccodec",
+    documentation: "https://qccodec.docs.afh.org/",
   },
   qccompute: {
     name: "qccompute",
@@ -70,7 +71,7 @@ export const projects = {
 } satisfies Record<string, Project>;
 
 export const qcProjects = [
-  projects.qcconst,
+  projects.qcref,
   projects.qcdata,
   projects.qcinf,
   projects.qccodec,
