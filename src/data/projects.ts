@@ -22,7 +22,7 @@ export const projects = {
     description:
       "Elegant, intuitive data structures for quantum chemistry, including serializable calculation inputs and outputs and seamless Jupyter Notebook visualization.",
     repository: "https://github.com/atomsforhumanity/qcdata",
-    documentation: "https://qcdata.docs.atomsforhumanity.org/",
+    documentation: "https://qcdata.docs.afh.org/",
   },
   qcinf: {
     name: "qcinf",
@@ -44,7 +44,7 @@ export const projects = {
     description:
       "A common interface for operating quantum chemistry programs using standardized qcdata structures, supporting programs including TeraChem, Psi4, Q-Chem, NWChem, ORCA, Molpro, geomeTRIC, and others.",
     repository: "https://github.com/atomsforhumanity/qccompute",
-    documentation: "https://qccompute.docs.atomsforhumanity.org/",
+    documentation: "https://qccompute.docs.afh.org/",
   },
   bigchem: {
     name: "BigChem",

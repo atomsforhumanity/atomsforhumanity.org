@@ -82,11 +82,11 @@ const technologyHtml = pageHtml.get("/technology");
 for (const href of [
   "https://github.com/atomsforhumanity/qcconst",
   "https://github.com/atomsforhumanity/qcdata",
-  "https://qcdata.docs.atomsforhumanity.org/",
+  "https://qcdata.docs.afh.org/",
   "https://github.com/atomsforhumanity/qcinf",
   "https://github.com/atomsforhumanity/qccodec",
   "https://github.com/atomsforhumanity/qccompute",
-  "https://qccompute.docs.atomsforhumanity.org/",
+  "https://qccompute.docs.afh.org/",
   "https://github.com/atomsforhumanity/bigchem",
   "https://github.com/atomsforhumanity/chemcloud-server",
   "https://github.com/atomsforhumanity/chemcloud-client",
