@@ -16,7 +16,7 @@ Use these facts consistently throughout the website.
 
 **Legal name:** Atoms for Humanity Corp
 
-**Domain:** https://www.atomsforhumanity.org
+**Domain:** https://www.afh.org
 
 **Organization type:** 501(c)(3) public charity
 
@@ -1134,7 +1134,7 @@ Delaware
 March 2026
 
 **Official website**
-www.atomsforhumanity.org
+www.afh.org
 
 **Physical address**
 107 Plaza Trusco
@@ -1543,7 +1543,7 @@ The production website must make the following easily machine- and human-readabl
 
 **Organization:** Atoms for Humanity Corp
 
-**Domain:** www.atomsforhumanity.org
+**Domain:** www.afh.org
 
 **EIN:** 41-5138821
 
@@ -1574,7 +1574,7 @@ Conceptually:
   "@type": "NonprofitOrganization",
   "name": "Atoms for Humanity",
   "legalName": "Atoms for Humanity Corp",
-  "url": "https://www.atomsforhumanity.org",
+  "url": "https://www.afh.org",
   "taxID": "41-5138821",
   "foundingDate": "2026-03",
   "address": {

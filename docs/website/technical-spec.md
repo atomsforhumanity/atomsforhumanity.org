@@ -82,7 +82,7 @@ astro build
         ↓
 static dist/
         ↓
-www.atomsforhumanity.org
+www.afh.org
 ```
 
 The resulting site should remain portable to any ordinary static host.
@@ -526,7 +526,7 @@ The structured data should reinforce the relationship between:
 
 and
 
-**https://www.atomsforhumanity.org**
+**https://www.afh.org**
 
 ## Navigation
 
@@ -636,24 +636,26 @@ Use preview deployments for pull requests/branches.
 
 Configure:
 
-* `atomsforhumanity.org`
-* `www.atomsforhumanity.org`
+* `afh.org`
+* `www.afh.org`
 * HTTPS
 * redirect between `www` and apex according to one chosen canonical form
 
 Preferred canonical domain:
 
 ```text
-https://www.atomsforhumanity.org
+https://www.afh.org
 ```
 
 Redirect:
 
 ```text
-atomsforhumanity.org
+afh.org
 ```
 
 to the `www` domain.
+
+The former domain (`atomsforhumanity.org` and `www.atomsforhumanity.org`) stays attached to the project and permanently redirects every path to the same path on `https://www.afh.org`.
 
 ## Quality principle
 

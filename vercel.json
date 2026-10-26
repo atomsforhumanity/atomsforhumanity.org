@@ -2,8 +2,20 @@
   "redirects": [
     {
       "source": "/(.*)",
+      "has": [{ "type": "host", "value": "afh.org" }],
+      "destination": "https://www.afh.org/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "atomsforhumanity.org" }],
-      "destination": "https://www.atomsforhumanity.org/$1",
+      "destination": "https://www.afh.org/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.atomsforhumanity.org" }],
+      "destination": "https://www.afh.org/$1",
       "permanent": true
     }
   ]

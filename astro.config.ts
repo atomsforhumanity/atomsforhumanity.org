@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://www.atomsforhumanity.org",
+  site: "https://www.afh.org",
   output: "static",
   trailingSlash: "never",
 });

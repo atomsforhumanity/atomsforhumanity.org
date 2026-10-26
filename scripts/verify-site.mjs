@@ -38,12 +38,12 @@ for (const [route, html] of pageHtml) {
   if (title) titles.add(title);
   if (!description || descriptions.has(description)) failures.push(`${route}: missing or duplicate meta description`);
   if (description) descriptions.add(description);
-  if (canonical !== `https://www.atomsforhumanity.org${route}`) failures.push(`${route}: invalid canonical URL`);
+  if (canonical !== `https://www.afh.org${route}`) failures.push(`${route}: invalid canonical URL`);
   if (headings !== 1) failures.push(`${route}: expected one h1, found ${headings}`);
   if (!html.includes(`<meta property="og:title" content="${title}"`)) failures.push(`${route}: Open Graph title does not match page title`);
   if (!html.includes(`<meta property="og:description" content="${description}"`)) failures.push(`${route}: Open Graph description does not match meta description`);
   if (!html.includes(`<meta property="og:url" content="${canonical}"`)) failures.push(`${route}: Open Graph URL does not match canonical URL`);
-  if (!html.includes(`<meta property="og:image" content="https://www.atomsforhumanity.org/social-card.png"`)) failures.push(`${route}: missing production social card`);
+  if (!html.includes(`<meta property="og:image" content="https://www.afh.org/social-card.png"`)) failures.push(`${route}: missing production social card`);
   if (!html.includes(`<meta name="twitter:card" content="summary_large_image"`)) failures.push(`${route}: missing Twitter card metadata`);
   if (!html.includes(`<main id="main-content" tabindex="-1">`)) failures.push(`${route}: main landmark is not a keyboard-focusable skip-link target`);
 
@@ -113,7 +113,7 @@ for (const [property, expected] of Object.entries({
   "@type": "NonprofitOrganization",
   name: "Atoms for Humanity",
   legalName: "Atoms for Humanity Corp",
-  url: "https://www.atomsforhumanity.org",
+  url: "https://www.afh.org",
   taxID: "41-5138821",
   nonprofitStatus: "https://schema.org/Nonprofit501c3",
 })) {
@@ -145,11 +145,11 @@ if (!builtCssHref) {
 }
 
 const robots = readFileSync(join(outputDirectory, "robots.txt"), "utf8");
-if (!robots.includes("Sitemap: https://www.atomsforhumanity.org/sitemap.xml")) failures.push("robots: invalid sitemap URL");
+if (!robots.includes("Sitemap: https://www.afh.org/sitemap.xml")) failures.push("robots: invalid sitemap URL");
 
 const sitemap = readFileSync(join(outputDirectory, "sitemap.xml"), "utf8");
 for (const [route] of pages) {
-  if (!sitemap.includes(`<loc>https://www.atomsforhumanity.org${route}</loc>`)) failures.push(`sitemap: missing ${route}`);
+  if (!sitemap.includes(`<loc>https://www.afh.org${route}</loc>`)) failures.push(`sitemap: missing ${route}`);
 }
 
 if (failures.length > 0) {
