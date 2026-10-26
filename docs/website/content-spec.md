@@ -658,7 +658,7 @@ Display a polished architecture diagram approximately:
        ↕                                 ↓
    structure                     Simulation programs
        ↕                                 ↓
-    qcconst                     CPU / GPU / HPC / Cloud
+    qcref                     CPU / GPU / HPC / Cloud
 ```
 
 The exact visual arrangement may be improved, but preserve the conceptual layers.
@@ -679,11 +679,11 @@ Show all packages.
 
 ---
 
-## qcconst
+## qcref
 
 Display name:
 
-**qcconst**
+**qcref**
 
 Description:
 
@@ -691,7 +691,7 @@ Description:
 
 Repository:
 
-https://github.com/atomsforhumanity/qcconst
+https://github.com/atomsforhumanity/qcref
 
 ---
 
@@ -744,6 +744,10 @@ Description:
 Repository:
 
 https://github.com/atomsforhumanity/qccodec
+
+Documentation:
+
+https://qccodec.docs.afh.org/
 
 ---
 
@@ -1379,8 +1383,8 @@ Use this project map:
 - Public names are `qcdata` and `qccompute`.
 
 ```text
-qcconst
-https://github.com/atomsforhumanity/qcconst
+qcref
+https://github.com/atomsforhumanity/qcref
 
 qcdata
 https://github.com/atomsforhumanity/qcdata

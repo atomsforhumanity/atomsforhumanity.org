@@ -80,11 +80,12 @@ for (const fact of [
 
 const technologyHtml = pageHtml.get("/technology");
 for (const href of [
-  "https://github.com/atomsforhumanity/qcconst",
+  "https://github.com/atomsforhumanity/qcref",
   "https://github.com/atomsforhumanity/qcdata",
   "https://qcdata.docs.afh.org/",
   "https://github.com/atomsforhumanity/qcinf",
   "https://github.com/atomsforhumanity/qccodec",
+  "https://qccodec.docs.afh.org/",
   "https://github.com/atomsforhumanity/qccompute",
   "https://qccompute.docs.afh.org/",
   "https://github.com/atomsforhumanity/bigchem",
