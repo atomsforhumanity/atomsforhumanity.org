@@ -711,7 +711,7 @@ https://github.com/atomsforhumanity/qcdata
 
 Documentation:
 
-https://qcdata.docs.atomsforhumanity.org/
+https://qcdata.docs.afh.org/
 
 ---
 
@@ -763,7 +763,7 @@ https://github.com/atomsforhumanity/qccompute
 
 Documentation:
 
-https://qccompute.docs.atomsforhumanity.org/
+https://qccompute.docs.afh.org/
 
 ---
 
