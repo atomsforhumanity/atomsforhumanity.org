@@ -38,7 +38,12 @@ const schema = {
     postalCode: organization.address.postalCode,
     addressCountry: "US",
   },
-  sameAs: [organization.links.github, organization.links.linkedin],
+  sameAs: [
+    organization.links.github,
+    organization.links.linkedin,
+    organization.links.wikidata,
+    organization.links.candid,
+  ],
 };
 ---
 

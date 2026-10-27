@@ -40,7 +40,7 @@ United States
 https://github.com/atomsforhumanity
 
 **LinkedIn:**
-http://linkedin.com/company/atoms-for-humanity
+https://www.linkedin.com/company/atoms-for-humanity
 
 Do not display a phone number or public email address in V1.
 
@@ -1591,7 +1591,9 @@ Conceptually:
   },
   "sameAs": [
     "https://github.com/atomsforhumanity",
-    "http://linkedin.com/company/atoms-for-humanity"
+    "https://www.linkedin.com/company/atoms-for-humanity",
+    "https://www.wikidata.org/wiki/Q141895528",
+    "https://app.candid.org/profile/16621440/atoms-for-humanity-corp-41-5138821"
   ]
 }
 ```

@@ -38,7 +38,9 @@ export const organization = {
   } satisfies PostalAddress,
   links: {
     github: "https://github.com/atomsforhumanity",
-    linkedin: "http://linkedin.com/company/atoms-for-humanity",
+    linkedin: "https://www.linkedin.com/company/atoms-for-humanity",
+    wikidata: "https://www.wikidata.org/wiki/Q141895528",
+    candid: "https://app.candid.org/profile/16621440/atoms-for-humanity-corp-41-5138821",
   },
   support: {
     name: "Astera Institute",
